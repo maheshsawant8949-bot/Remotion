@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_sec": 6,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "title_group",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade_up",
+          "children": [
+            {
+              "type": "text",
+              "content": "Why Airplanes Fly",
+              "font_size": 96
+            },
+            {
+              "type": "text",
+              "content": "Visual Explainer System — Layout Test",
+              "font_size": 42
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "scene_id": 2,
+      "duration_sec": 7,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "airplane_group",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "slide_up",
+          "loop_animation": "float",
+          "children": [
+            {
+              "type": "svg",
+              "src": "assets/icons/airplane.svg",
+              "size": 360
+            },
+            {
+              "type": "text",
+              "content": "Airflow over wings",
+              "font_size": 44
+            }
+          ]
+        },
+        {
+          "id": "airflow_lines",
+          "type": "motion_lines",
+          "direction": "left_to_right",
+          "count": 10,
+          "speed": "slow"
+        }
+      ]
+    },
+
+    {
+      "scene_id": 3,
+      "duration_sec": 7,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "lift_group",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "slide_up",
+          "children": [
+            {
+              "type": "svg",
+              "src": "assets/icons/wing.svg",
+              "size": 300
+            },
+            {
+              "type": "text",
+              "content": "Lift Force",
+              "font_size": 64
+            }
+          ]
+        },
+        {
+          "id": "lift_callout",
+          "type": "callout",
+          "from": { "x": "50%", "y": "45%" },
+          "to": { "x": "72%", "y": "28%" },
+          "label": "Lift"
+        },
+        {
+          "id": "focus_lift",
+          "type": "focus",
+          "target_id": "lift_group",
+          "dim_opacity": 0.5,
+          "blur": 4
+        }
+      ]
+    },
+
+    {
+      "scene_id": 4,
+      "duration_sec": 7,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "process_timeline",
+          "type": "timeline",
+          "orientation": "horizontal",
+          "position": "diagram.timeline",
+          "steps": [
+            { "id": "s1", "label": "Speed" },
+            { "id": "s2", "label": "Airflow" },
+            { "id": "s3", "label": "Lift" }
+          ],
+          "step_duration_sec": 2,
+          "enter_animation": "fade_up"
+        }
+      ]
+    },
+
+    {
+      "scene_id": 5,
+      "duration_sec": 7,
+      "layout": "data",
+      "layers": [
+        {
+          "id": "speed_counter",
+          "type": "counter",
+          "label": "Speed (km/h)",
+          "from": 0,
+          "to": 850,
+          "duration_sec": 2,
+          "position": "data.counter",
+          "enter_animation": "fade_up"
+        },
+        {
+          "id": "lift_chart",
+          "type": "bar_chart",
+          "bars": [
+            { "label": "Low speed", "value": 30 },
+            { "label": "Medium speed", "value": 65 },
+            { "label": "High speed", "value": 100 }
+          ],
+          "max_value": 100,
+          "position": "data.chart",
+          "enter_animation": "fade_up"
+        }
+      ]
+    },
+
+    {
+      "scene_id": 6,
+      "duration_sec": 8,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "airplane_3d",
+          "type": "three",
+          "model": "assets/models/airplane.glb",
+          "scale": 1.15,
+          "rotation": [-0.2, 1.2, 0],
+          "position": [0, -0.2, 0],
+          "camera": {
+            "position": [0, 1.6, 4.5],
+            "fov": 45
+          },
+          "ambient_light": 0.75
+        },
+        {
+          "id": "final_focus",
+          "type": "focus",
+          "target_id": "airplane_3d",
+          "dim_opacity": 0.35,
+          "blur": 3
+        },
+        {
+          "id": "depth_label",
+          "type": "text",
+          "content": "3D Accent (Depth Only)",
+          "font_size": 36,
+          "position": { "x": "center", "y": "82%" }
+        }
+      ]
+    }
+  ]
+}
