@@ -1,8 +1,8 @@
 
-import { resolvePosition } from '../layout/resolvePosition';
+
+import { tokens } from '../style/tokens';
 import { useEnterAnimation } from '../animation/enter';
 import { useLoopAnimation } from '../animation/loops';
-import { theme } from '../style/theme';
 
 
 export const TextLayer = ({
@@ -10,7 +10,8 @@ export const TextLayer = ({
   position,
   enter_animation,
   loop_animation,
-  font_size = 96
+  font_size = tokens.font.size.display,
+  sceneLayout
 }: any) => {
   const enterStyle = useEnterAnimation(enter_animation);
   const loopStyle = useLoopAnimation(loop_animation);
@@ -18,11 +19,11 @@ export const TextLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        ...resolvePosition(position),
-        color: theme.text,
+        width: '100%',
+        color: tokens.colors.text,
         fontSize: font_size,
-        fontFamily: theme.font,
+        fontFamily: tokens.font.family,
+        textAlign: 'center', // Content alignment, not layout positioning
         ...enterStyle,
         ...loopStyle
       }}

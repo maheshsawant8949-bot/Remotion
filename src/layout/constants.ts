@@ -7,3 +7,5 @@ export const SAFE = {
   WIDTH: 1920,
   HEIGHT: 1080
 };
+
+export const DEBUG_LAYOUT = true;

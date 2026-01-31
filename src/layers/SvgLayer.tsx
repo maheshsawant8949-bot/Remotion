@@ -1,5 +1,5 @@
 import { staticFile } from 'remotion';
-import { resolvePosition } from '../layout/resolvePosition';
+
 import { useEnterAnimation } from '../animation/enter';
 import { useLoopAnimation } from '../animation/loops';
 
@@ -9,7 +9,8 @@ export const SvgLayer = ({
   position,
   enter_animation,
   loop_animation,
-  size = 400
+  size = 400,
+  sceneLayout
 }: any) => {
   const enterStyle = useEnterAnimation(enter_animation);
   const loopStyle = useLoopAnimation(loop_animation);
@@ -17,8 +18,11 @@ export const SvgLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        ...resolvePosition(position),
+        display: 'flex',
+        justifyContent: 'center', // Center content within the allocated layout box
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
         ...enterStyle,
         ...loopStyle
       }}

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useEnterAnimation } from '../animation/enter';
+
 import { useFocus } from '../focus/FocusContext';
 
 export const FocusLayer = ({
@@ -9,7 +9,6 @@ export const FocusLayer = ({
   enter_animation
 }: any) => {
   const { setFocus } = useFocus();
-  const enterStyle = useEnterAnimation(enter_animation);
 
   useEffect(() => {
     setFocus({
@@ -24,7 +23,7 @@ export const FocusLayer = ({
         dimOpacity: 0,
         blur: 0
       });
-  }, [target_id]);
+  }, [target_id, dim_opacity, blur, setFocus]);
 
-  return <div style={enterStyle} />;
+  return null;
 };

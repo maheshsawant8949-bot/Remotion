@@ -43,6 +43,7 @@
           "position": "diagram.mainVisual",
           "enter_animation": "slide_up",
           "loop_animation": "float",
+          "alignment": "top",
           "children": [
             {
               "type": "svg",
@@ -59,6 +60,8 @@
         {
           "id": "airflow_lines",
           "type": "motion_lines",
+          "role": "effect",
+          "parent": "mainVisual",
           "direction": "left_to_right",
           "count": 10,
           "speed": "slow"
@@ -76,6 +79,7 @@
           "type": "group",
           "position": "diagram.mainVisual",
           "enter_animation": "slide_up",
+          "alignment": "top",
           "children": [
             {
               "type": "svg",
@@ -165,6 +169,7 @@
         {
           "id": "airplane_3d",
           "type": "three",
+          "parent": "mainVisual",
           "model": "assets/models/airplane.glb",
           "scale": 1.15,
           "rotation": [-0.2, 1.2, 0],
@@ -176,18 +181,18 @@
           "ambient_light": 0.75
         },
         {
+          "id": "depth_label",
+          "type": "text",
+          "content": "3D Accent (Depth Only)",
+          "font_size": 36,
+          "position": "diagram.supporting"
+        },
+        {
           "id": "final_focus",
           "type": "focus",
           "target_id": "airplane_3d",
           "dim_opacity": 0.35,
           "blur": 3
-        },
-        {
-          "id": "depth_label",
-          "type": "text",
-          "content": "3D Accent (Depth Only)",
-          "font_size": 36,
-          "position": { "x": "center", "y": "82%" }
         }
       ]
     }

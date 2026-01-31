@@ -1,6 +1,6 @@
 
 import { theme } from '../style/theme';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
+
 import { useDrawLine } from '../animation/draw';
 
 export const CalloutLayer = ({
@@ -13,7 +13,7 @@ export const CalloutLayer = ({
     enter_animation === 'draw_line' ? useDrawLine() : 1;
 
   return (
-    <div style={{ position: 'absolute', top: SAFE_TOP, left: 0, right: 0, bottom: SAFE_BOTTOM }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
       {/* SVG Line */}
       <svg
         width="100%"

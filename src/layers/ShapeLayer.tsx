@@ -2,7 +2,7 @@
 import { useEnterAnimation } from '../animation/enter';
 import { useLoopAnimation } from '../animation/loops';
 import { theme } from '../style/theme';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
+
 
 export const ShapeLayer = ({
   shape = 'circle',
@@ -17,11 +17,8 @@ export const ShapeLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        top: SAFE_TOP,
-        left: 0,
-        right: 0,
-        bottom: SAFE_BOTTOM,
+        width: '100%',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

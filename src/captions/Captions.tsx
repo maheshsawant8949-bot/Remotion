@@ -1,16 +1,25 @@
-import { AbsoluteFill } from 'remotion';
 import { Word } from './Word';
+import { Z_INDEX } from '../style/zIndex';
 
 export const Captions = ({ words }: any) => {
   if (!words || !words.length) return null;
 
   return (
-    <AbsoluteFill
+    <div
       style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100%',
+        height: '100%',
         justifyContent: 'flex-end',
         alignItems: 'center',
+        display: 'flex',
         paddingBottom: 120,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        zIndex: Z_INDEX.CAPTIONS
       }}
     >
       <div
@@ -26,6 +35,6 @@ export const Captions = ({ words }: any) => {
           <Word key={i} {...word} />
         ))}
       </div>
-    </AbsoluteFill>
+    </div>
   );
 };

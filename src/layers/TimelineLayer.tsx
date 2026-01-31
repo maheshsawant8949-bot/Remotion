@@ -1,14 +1,15 @@
+import { tokens } from '../style/tokens';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { TimelineStep } from './TimelineStep';
 import { useEnterAnimation } from '../animation/enter';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
 
 export const TimelineLayer = ({
   steps,
   orientation = 'horizontal',
-  position = { x: 'center', y: '80%' },
+  position,
   step_duration_sec = 1.5,
-  enter_animation
+  enter_animation,
+  sceneLayout
 }: any) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -19,32 +20,15 @@ export const TimelineLayer = ({
 
   const containerStyle: any = {
     display: 'flex',
-    gap: 16,
+    gap: tokens.spacing.m,
     flexDirection: orientation === 'vertical' ? 'column' : 'row'
   };
 
-  const posStyle: any = { position: 'absolute' };
-
-  if (position.x === 'center') {
-    posStyle.left = '50%';
-    posStyle.transform = 'translateX(-50%)';
-  } else {
-    posStyle.left = position.x;
-  }
-
-  if (position.y === 'center') {
-    posStyle.top = '50%';
-    posStyle.transform += ' translateY(-50%)';
-  } else {
-    posStyle.top = position.y;
-  }
-
   return (
-    <div style={{ position: 'absolute', top: SAFE_TOP, left: 0, right: 0, bottom: SAFE_BOTTOM }}>
+    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: tokens.spacing.xxl }}>
       <div
         style={{
           ...containerStyle,
-          ...posStyle,
           ...enterStyle
         }}
       >

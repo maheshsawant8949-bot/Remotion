@@ -1,12 +1,15 @@
 import { interpolate, useCurrentFrame } from 'remotion';
 import { theme } from '../style/theme';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
+import { tokens } from '../style/tokens';
 import { useEnterAnimation } from '../animation/enter';
+
 
 export const BarChartLayer = ({
   bars,
   max_value = 100,
-  enter_animation
+  position,
+  enter_animation,
+  sceneLayout
 }: any) => {
   const frame = useCurrentFrame();
   const enterStyle = useEnterAnimation(enter_animation);
@@ -14,16 +17,11 @@ export const BarChartLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        top: SAFE_TOP,
-        left: 0,
-        right: 0,
-        bottom: SAFE_BOTTOM,
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-end',
-        gap: 32,
-        paddingBottom: 200,
+        gap: tokens.spacing.xl,
         flexDirection: 'row',
         ...enterStyle
       }}
@@ -40,17 +38,17 @@ export const BarChartLayer = ({
           <div key={i} style={{ textAlign: 'center' }}>
             <div
               style={{
-                width: 80,
+                width: 80, // Could be tokenized but width is often specific to chart density
                 height,
-                backgroundColor: theme.primary,
-                borderRadius: 12
+                backgroundColor: tokens.colors.primary,
+                borderRadius: tokens.radius.m
               }}
             />
             <div
               style={{
-                marginTop: 12,
-                fontSize: 20,
-                color: theme.text
+                marginTop: tokens.spacing.s,
+                fontSize: tokens.font.size.small,
+                color: tokens.colors.text
               }}
             >
               {bar.label}

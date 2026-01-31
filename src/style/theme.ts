@@ -1,7 +1,9 @@
+import { tokens } from './tokens';
+
 export const theme = {
-  background: ['#020617', '#0F172A'],
-  primary: '#38BDF8',
-  accent: '#FACC15',
-  text: '#E5E7EB',
-  font: 'Inter',
+  background: tokens.colors.backgroundGradient,
+  primary: tokens.colors.primary,
+  accent: tokens.colors.accent,
+  text: tokens.colors.text,
+  font: tokens.font.family,
 };

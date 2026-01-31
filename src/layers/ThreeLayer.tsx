@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
+import { Bounds } from '@react-three/drei';
 import { Model } from '../three/Model';
 import { useEnterAnimation } from '../animation/enter';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
 
 const Rotator = ({ children }: any) => {
   useFrame((state) => {
@@ -26,11 +26,8 @@ export const ThreeLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        top: SAFE_TOP,
-        left: 0,
-        right: 0,
-        bottom: SAFE_BOTTOM,
+        width: '100%',
+        height: '100%',
         ...enterStyle
       }}
     >
@@ -42,14 +39,16 @@ export const ThreeLayer = ({
       >
         <ambientLight intensity={ambient_light} />
         <directionalLight position={[5, 5, 5]} intensity={0.6} />
-        <Rotator>
-          <Model
-            src={model}
-            scale={scale}
-            rotation={rotation}
-            position={position}
-          />
-        </Rotator>
+        <Bounds fit clip observe margin={1.2}>
+          <Rotator>
+            <Model
+              src={model}
+              scale={scale}
+              rotation={rotation}
+              position={position}
+            />
+          </Rotator>
+        </Bounds>
       </Canvas>
     </div>
   );

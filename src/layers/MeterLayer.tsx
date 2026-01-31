@@ -18,14 +18,12 @@ export const MeterLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        top: SAFE_TOP,
-        left: 0,
-        right: 0,
-        bottom: SAFE_BOTTOM,
+        width: '100%',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
       }}
     >
       <div

@@ -1,14 +1,17 @@
 import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 import { theme } from '../style/theme';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
+import { tokens } from '../style/tokens';
 import { useEnterAnimation } from '../animation/enter';
+
 
 export const CounterLayer = ({
   label,
   from = 0,
   to,
   duration_sec = 2,
-  enter_animation
+  position,
+  enter_animation,
+  sceneLayout
 }: any) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -24,11 +27,7 @@ export const CounterLayer = ({
   return (
     <div
       style={{
-        position: 'absolute',
-        top: SAFE_TOP,
-        left: 0,
-        right: 0,
-        bottom: SAFE_BOTTOM,
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -36,10 +35,10 @@ export const CounterLayer = ({
         ...enterStyle
       }}
     >
-      <div style={{ fontSize: 96, fontWeight: 700, color: theme.primary }}>
+      <div style={{ fontSize: tokens.font.size.display, fontWeight: tokens.font.weight.bold, color: tokens.colors.primary }}>
         {Math.round(progress)}
       </div>
-      <div style={{ fontSize: 32, color: theme.text, marginTop: 8 }}>
+      <div style={{ fontSize: tokens.font.size.label, color: tokens.colors.text, marginTop: tokens.spacing.s }}>
         {label}
       </div>
     </div>

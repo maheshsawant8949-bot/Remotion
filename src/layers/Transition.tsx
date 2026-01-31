@@ -9,12 +9,11 @@ export const Transition = ({ style = 'wipe_left' }: any) => {
   return (
     <div
       style={{
-        position: 'absolute',
-        inset: 0,
+        height: '100%',
         background: theme.primary,
         width: `${width}%`,
-        left: style === 'wipe_left' ? 0 : undefined,
-        right: style === 'wipe_right' ? 0 : undefined
+        marginLeft: style === 'wipe_left' ? 0 : 'auto',
+        marginRight: style === 'wipe_right' ? 0 : 'auto'
       }}
     />
   );
