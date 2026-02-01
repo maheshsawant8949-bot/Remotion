@@ -16,9 +16,14 @@ export const SceneCompiler = {
       // For now, we return the validated shell or populated scene.
       
       // 3. Validation Phase (The Police)
-      const isValid = validateCompiledScene(scene);
-      if (!isValid) {
-        scene.warnings.push("CRITICAL: Pipeline Validation Failed.");
+      try {
+        validateCompiledScene(scene);
+      } catch (e: any) {
+        if (e.name === 'SceneValidationError') {
+           scene.warnings.push(`CRITICAL: ${e.message}`);
+        } else {
+           throw e;
+        }
       }
 
       return scene;

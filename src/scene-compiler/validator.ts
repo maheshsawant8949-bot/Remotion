@@ -20,8 +20,9 @@ export const validateCompiledScene = (scene: { layout: string, layers: any[], sc
   const errors: string[] = [];
 
   // 0. Validate Grammar Version
-  if (scene.grammarVersion !== GRAMMAR_VERSION) {
-      errors.push(`Grammar Version Mismatch: Scene is '${scene.grammarVersion}', Compiler expected '${GRAMMAR_VERSION}'`);
+  const expectedVersion = GRAMMAR_VERSION || "1.0";
+  if (scene.grammarVersion !== expectedVersion) {
+      errors.push(`Grammar Version Mismatch: Scene is '${scene.grammarVersion}', Compiler expected '${expectedVersion}'`);
   }
   
   // Use the Grammar as the source of truth

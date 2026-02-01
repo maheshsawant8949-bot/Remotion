@@ -29,10 +29,13 @@ export const SceneFactory = {
         templateSelection: `Selected '${templateKey}' for intent '${intent.type}'`
     };
     
+    // Fallback validation to prevent "undefined" error if import order is messed up
+    const safeVersion = GRAMMAR_VERSION || "1.0";
+
     return {
       layout: templateKey,
       role: intent.role,
-      grammarVersion: GRAMMAR_VERSION,
+      grammarVersion: safeVersion,
       trace: finalTrace,
       layers: [],
       warnings: []

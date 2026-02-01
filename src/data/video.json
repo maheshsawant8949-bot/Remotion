@@ -8,6 +8,7 @@
   "scenes": [
     {
       "scene_id": 1,
+      "grammarVersion": "1.0",
       "duration_sec": 6,
       "layout": "title",
       "layers": [
@@ -34,6 +35,7 @@
 
     {
       "scene_id": 2,
+      "grammarVersion": "1.0",
       "duration_sec": 7,
       "layout": "diagram",
       "layers": [
@@ -71,6 +73,7 @@
 
     {
       "scene_id": 3,
+      "grammarVersion": "1.0",
       "duration_sec": 7,
       "layout": "diagram",
       "layers": [
@@ -112,8 +115,9 @@
 
     {
       "scene_id": 4,
+      "grammarVersion": "1.0",
       "duration_sec": 7,
-      "layout": "diagram",
+      "layout": "process",
       "layers": [
         {
           "id": "process_timeline",
@@ -133,6 +137,7 @@
 
     {
       "scene_id": 5,
+      "grammarVersion": "1.0",
       "duration_sec": 7,
       "layout": "data",
       "layers": [
@@ -163,8 +168,9 @@
 
     {
       "scene_id": 6,
+      "grammarVersion": "1.0",
       "duration_sec": 8,
-      "layout": "diagram",
+      "layout": "hero",
       "layers": [
         {
           "id": "airplane_3d",
@@ -185,7 +191,7 @@
           "type": "text",
           "content": "3D Accent (Depth Only)",
           "font_size": 36,
-          "position": "diagram.supporting"
+          "position": "hero.caption"
         },
         {
           "id": "final_focus",
