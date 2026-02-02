@@ -1,4 +1,4 @@
-import { INTENT_MAP, PRIMITIVES, SceneIntent, TemplateType, NarrativeRole, DecisionTrace, GRAMMAR_VERSION } from './grammar-rules';
+import { INTENT_MAP, PRIMITIVES, SceneIntent, TemplateType, NarrativeRole, DecisionTrace, GRAMMAR_VERSION, DENSITY_THRESHOLD_HIGH } from './grammar-rules';
 
 export interface CompiledScene {
   layout: TemplateType;
@@ -21,19 +21,61 @@ export const SceneFactory = {
   // Initialize a scene structure based on high-level intent
   create: (intent: SceneIntent): CompiledScene => {
     const mapping = INTENT_MAP[intent.type];
-    const templateKey = mapping.primary;
+    
+    // 1. Determine Candidates (Strategy override vs Default)
+    // We start with the strategies suggested by the engine, but we MUST validate them against the physics (Grammar).
+    const candidates = intent.competingStrategies || [];
+    
+    // 2. Select the Best Valid Candidate
+    let selectedTemplate: TemplateType | null = null;
+    let selectionReason = "";
+    const rejections: string[] = [];
+
+    for (const candidate of candidates) {
+        // Cast string to TemplateType for check
+        const candidateType = candidate as TemplateType;
+        
+        // Check Validity:
+        // A candidate is valid if it is the Primary for this intent OR it is in the Allowed Variants.
+        const isPrimary = mapping.primary === candidateType;
+        const isVariant = mapping.allowedVariants?.includes(candidateType);
+        
+        if (isPrimary || isVariant) {
+            selectedTemplate = candidateType;
+            selectionReason = `Selected strategy '${candidate}' (Valid for '${intent.type}')`;
+            break; // Found the highest confidence valid match
+        } else {
+             // Rejection Logging
+             rejections.push(`Rejected: ${candidate} | Reason: Not valid for intent '${intent.type}' (Allowed: ${[mapping.primary, ...(mapping.allowedVariants||[])].join(', ')})`);
+        }
+    }
+
+    // 3. Fallback
+    if (!selectedTemplate) {
+        selectedTemplate = mapping.primary;
+        selectionReason = `Fallback to primary '${selectedTemplate}' (No valid strategy found in [${candidates.join(', ')}])`;
+    }
+
+    // 4. Grammar Overrides (Physics Enforcement)
+    // Rule: High density content cannot be displayed in 'Hero' layout (too cluttered).
+    const density = intent.trace?.densityScore ?? 0;
+    if (selectedTemplate === 'hero' && density > DENSITY_THRESHOLD_HIGH) {
+        selectedTemplate = 'diagram'; 
+        selectionReason += ` -> [OVERRIDE] Downgraded 'hero' to 'diagram' (Density ${density} > ${DENSITY_THRESHOLD_HIGH})`;
+    }
     
     // Augment trace with selection logic
     const finalTrace = {
         ...intent.trace,
-        templateSelection: `Selected '${templateKey}' for intent '${intent.type}'`
+        templateSelection: selectionReason,
+        rejections: rejections
     };
     
     // Fallback validation to prevent "undefined" error if import order is messed up
     const safeVersion = GRAMMAR_VERSION || "1.0";
 
     return {
-      layout: templateKey,
+      layout: selectedTemplate,
       role: intent.role,
       grammarVersion: safeVersion,
       trace: finalTrace,

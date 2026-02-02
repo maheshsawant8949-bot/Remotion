@@ -4,6 +4,7 @@
 // What can go where? (Migrated from model/templates.ts)
 
 export const GRAMMAR_VERSION = "1.0";
+export const DENSITY_THRESHOLD_HIGH = 0.8;
 
 export type TemplateType = 'title' | 'hero' | 'process' | 'diagram' | 'data';
 
@@ -73,6 +74,7 @@ export type DecisionTrace = {
   splitReason?: string;
   classification?: string;
   templateSelection?: string;
+  rejections?: string[];
 };
 
 export type SceneIntent = {
@@ -81,6 +83,9 @@ export type SceneIntent = {
   intensity?: "low" | "medium" | "high";
   pacing?: "slow" | "normal" | "fast";
   trace?: DecisionTrace; // Debug artifact
+  purpose?: string;
+  // competingStrategies: List of preferred configurations from Strategy Engine, sorted by confidence
+  competingStrategies?: string[]; 
 };
 
 export type IntentTemplateMap = {
