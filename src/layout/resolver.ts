@@ -1,13 +1,15 @@
 import { DiagramLayout } from './diagram.layout';
 import { TitleLayout } from './title.layout';
 import { DataLayout } from './data.layout';
+import { HeroLayout } from './hero.layout';
 
 export const LAYOUTS: any = {
   title: TitleLayout,
   diagram: DiagramLayout,
   data: DataLayout,
-  hero: DiagramLayout,    // Alias: Uses exact same geometry as Diagram
-  process: DiagramLayout, // Alias: Uses exact same geometry as Diagram
+  hero: HeroLayout,
+  process: DiagramLayout,
+  timeline: DiagramLayout, // Alias: Uses exact same geometry as Diagram for now
 };
 
 export const resolvePosition = (position: any, sceneLayout?: string): React.CSSProperties => {
