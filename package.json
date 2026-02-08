@@ -28,6 +28,7 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "evaluate": "npx tsx evaluation/pipeline-tests/run-tests.ts"
   }
 }

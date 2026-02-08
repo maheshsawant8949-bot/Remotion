@@ -49,10 +49,21 @@ export class Heuristics {
             id: 'sequence',
             pattern: 'progressive_steps',
             matches: (text) => {
-                const sequenceKeywords = ['first', 'second', 'then', 'finally', 'next', 'step', 'timeline', 'history'];
-                return sequenceKeywords.some(k => text.includes(k));
+                const sequenceKeywords = [
+                    'first', 'second', 'third', 'fourth', 'fifth',
+                    'then', 'next', 'after', 'finally', 'lastly',
+                    'step', 'stage', 'phase',
+                    'timeline', 'history', 'evolution',
+                    'once', 'before', 'eventually'
+                ];
+                // Count how many sequence markers are present
+                const markerCount = sequenceKeywords.filter(k => text.includes(k)).length;
+                // Require at least 2 markers for strong sequence detection
+                return markerCount >= 2 || 
+                       // OR single strong marker with punctuation (e.g., "First, ... Then, ...")
+                       /\b(first|then|next|finally)\s*,/i.test(text);
             },
-            description: 'Detects sequence markers implies timeline'
+            description: 'Detects sequence markers implies timeline/staged presentation'
         },
 
          // 5. Spatial -> spatial_explanation (Diagram)

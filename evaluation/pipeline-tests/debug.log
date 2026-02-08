@@ -1,0 +1,180 @@
+﻿
+> remotion-auto-video@1.0.0 evaluate
+> npx tsx evaluation/pipeline-tests/run-tests.ts
+
+
+≡ƒÄ¼ PIPELINE EVALUATION HARNESS
+===============================
+
+SCRIPT: airplanes_stay_in
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "normal",
+  "density": "medium",
+  "revealEligible": true
+}
+
+SCRIPT: every_single_day
+-----------------------------------
+Emotional Weight: LOW Γ¥î
+  Expected: HIGH
+Strategy: HERO Γ£à
+Pacing: FAST Γ¥î
+  Expected: SLOW
+Reveal Eligible: TRUE Γ£à
+
+RESULT: FAIL
+
+SCRIPT: a_jet_engine
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "normal",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: steel_is_incredibly
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "fast",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: more_than_one
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "high",
+  "strategy": "title",
+  "pacing": "slow",
+  "density": "medium",
+  "revealEligible": true
+}
+
+SCRIPT: first_the_rocket
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "slow",
+  "density": "high",
+  "revealEligible": true
+}
+
+SCRIPT: the_pacific_ocean
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "diagram",
+  "pacing": "slow",
+  "density": "high",
+  "revealEligible": true
+}
+
+SCRIPT: only_3_of
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "hero",
+  "pacing": "fast",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: electric_vehicles_reduce
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "slow",
+  "density": "high",
+  "revealEligible": true
+}
+
+SCRIPT: for_families_living
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "hero",
+  "pacing": "normal",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: a_billion_ants
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "fast",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: the_james_webb
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "diagram",
+  "pacing": "fast",
+  "density": "medium",
+  "revealEligible": true
+}
+
+SCRIPT: a_cheetah_can
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "fast",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: photosynthesis_converts_light
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "normal",
+  "density": "low",
+  "revealEligible": true
+}
+
+SCRIPT: scientists_estimate_there
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "title",
+  "pacing": "normal",
+  "density": "medium",
+  "revealEligible": true
+}
+
+
+===================================
+TOTAL: 1
+PASS:  0
+FAIL:  1
+===================================
+

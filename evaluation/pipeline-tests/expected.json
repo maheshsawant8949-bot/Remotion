@@ -1,0 +1,20 @@
+{
+  "every_single_day": {
+    "emotionalWeight": "high",
+    "strategy": ["hero", "emphasis"],
+    "pacing": "slow",
+    "revealEligible": true
+  },
+  "the_energy_output": {
+    "emotionalWeight": "high",
+    "strategy": ["hero", "title"],
+    "pacing": "normal",
+    "revealEligible": true
+  },
+  "revenue_increased_by": {
+    "emotionalWeight": "low",
+    "strategy": ["diagram", "data"],
+    "pacing": "slow",
+    "revealEligible": false
+  }
+}

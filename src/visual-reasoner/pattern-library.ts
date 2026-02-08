@@ -37,7 +37,7 @@ export const PATTERN_TO_BEHAVIOR_MAP: Record<Pattern, SceneBehavior> = {
   
   // Legacy/General mappings
   quantify: 'hero',
-  introduce: 'title',
+  introduce: 'diagram',
   explain: 'diagram',
   compare: 'split_screen',
   unknown: 'default_view'

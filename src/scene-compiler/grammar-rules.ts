@@ -75,6 +75,32 @@ export type DecisionTrace = {
   classification?: string;
   templateSelection?: string;
   rejections?: string[];
+  // Extended Pacing Trace
+  densityAnalysis?: {
+    score: number;
+    action: 'maintain' | 'split' | 'downgrade_intensity';
+    signals: {
+        conceptCount: number;
+        numericPresence: number;
+        comparisonWords: number;
+        calloutsRequired: number;
+        visualElementsPredicted: number;
+    };
+  };
+  pacing?: {
+     profile: string;
+     reason: string;
+     baseDuration: number;
+     finalDuration: number;
+     forces?: string[];
+     emotionalAdjustment?: string;
+  };
+  // Emotional Weight Trace
+  emotionalAnalysis?: {
+      score: number;
+      level: "low" | "medium" | "high";
+      triggers: string[];
+  };
 };
 
 export type SceneIntent = {
@@ -86,6 +112,8 @@ export type SceneIntent = {
   purpose?: string;
   // competingStrategies: List of preferred configurations from Strategy Engine, sorted by confidence
   competingStrategies?: string[]; 
+  // Pre-calculated emotional weight (optional override)
+  emotionalWeight?: number; 
 };
 
 export type IntentTemplateMap = {
@@ -95,12 +123,12 @@ export type IntentTemplateMap = {
 
 export const INTENT_MAP: Record<IntentType, IntentTemplateMap> = {
     'context_setting': { 
-        primary: 'title', 
-        allowedVariants: ['hero'] 
+        primary: 'hero', 
+        allowedVariants: ['diagram'] 
     },
     'emotional_anchor': {
         primary: 'hero',
-        allowedVariants: ['title']
+        allowedVariants: ['diagram']
     },
     'spatial_explanation': {
         primary: 'diagram',

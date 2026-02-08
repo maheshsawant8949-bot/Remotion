@@ -1,0 +1,116 @@
+[
+  {
+    "id": "scale-001",
+    "text": "Every minute, one truckload of plastic enters the ocean.",
+    "category": "Scale",
+    "expected_weight": "High"
+  },
+  {
+    "id": "scale-002",
+    "text": "Over 90% of the world's startups fail.",
+    "category": "Scale",
+    "expected_weight": "High"
+  },
+  {
+    "id": "scale-003",
+    "text": "Billions of dollars are lost every year.",
+    "category": "Scale",
+    "expected_weight": "High"
+  },
+  {
+    "id": "impact-001",
+    "text": "Millions of families lost their homes.",
+    "category": "Human Impact",
+    "expected_weight": "Critical"
+  },
+  {
+    "id": "impact-002",
+    "text": "She never saw her children again.",
+    "category": "Human Impact",
+    "expected_weight": "Critical"
+  },
+  {
+    "id": "impact-003",
+    "text": "It builds community among the people.",
+    "category": "Human Impact",
+    "expected_weight": "High"
+  },
+  {
+    "id": "irreversibility-001",
+    "text": "The damage cannot be undone.",
+    "category": "Irreversibility",
+    "expected_weight": "Critical"
+  },
+  {
+    "id": "irreversibility-002",
+    "text": "This decision is permanent.",
+    "category": "Irreversibility",
+    "expected_weight": "Critical"
+  },
+  {
+    "id": "irreversibility-003",
+    "text": "We will never recover from this.",
+    "category": "Irreversibility",
+    "expected_weight": "Critical"
+  },
+  {
+    "id": "contrast-001",
+    "text": "Sales are up, but profit is down.",
+    "category": "Contrast",
+    "expected_weight": "Medium"
+  },
+  {
+    "id": "contrast-002",
+    "text": "He tried; however, he failed.",
+    "category": "Contrast",
+    "expected_weight": "Medium"
+  },
+  {
+    "id": "contrast-003",
+    "text": "Instead of waiting, we acted.",
+    "category": "Contrast",
+    "expected_weight": "Medium"
+  },
+  {
+    "id": "scarcity-001",
+    "text": "Only 3% of water is fresh.",
+    "category": "Scarcity",
+    "expected_weight": "Elevated"
+  },
+  {
+    "id": "scarcity-002",
+    "text": "It takes less than a second.",
+    "category": "Scarcity",
+    "expected_weight": "Elevated"
+  },
+  {
+    "id": "scarcity-003",
+    "text": "It was merely a scratch.",
+    "category": "Scarcity",
+    "expected_weight": "Elevated"
+  },
+  {
+    "id": "scarcity-004",
+    "text": "Just one more time.",
+    "category": "Scarcity",
+    "expected_weight": "Elevated"
+  },
+  {
+    "id": "neutral-001",
+    "text": "The sun rises in the east.",
+    "category": "Neutral",
+    "expected_weight": "Low"
+  },
+  {
+    "id": "neutral-002",
+    "text": "Please turn to page 50.",
+    "category": "Neutral",
+    "expected_weight": "Low"
+  },
+  {
+    "id": "synergy-001",
+    "text": "However, millions of lives were lost forever.",
+    "category": "Synergy (Contrast + Scale + Impact + Irreversibility)",
+    "expected_weight": "Critical"
+  }
+]
