@@ -25,13 +25,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "high",
-        "reveal": "stagger",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (4)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 7,
+          "action": "split",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "stagger",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "High density (7) requires calm motion"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -61,13 +86,38 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "diagram strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -97,13 +147,39 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 50% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -133,13 +209,39 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (4)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 33% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -169,13 +271,39 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (4)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 25% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -205,13 +333,38 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "diagram strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -234,13 +387,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (6)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 6,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (6)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "assertive",
+          "reason": [
+            "soft emphasis moment"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -270,13 +448,39 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": true
+        }
       }
     },
     {
@@ -299,13 +503,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -328,13 +557,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (4)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "assertive",
+          "reason": [
+            "soft emphasis moment"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -357,13 +611,39 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": true
+        }
       }
     },
     {
@@ -386,13 +666,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "process strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -415,13 +720,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "process strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -444,13 +774,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -473,13 +828,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (6)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 6,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (6)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "assertive",
+          "reason": [
+            "soft emphasis moment"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -502,13 +882,39 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": true
+        }
       }
     },
     {
@@ -531,13 +937,39 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (6)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 6,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (6)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "soft emphasis but inflation prevented",
+            "Assertive/energetic already at 30%"
+          ],
+          "inflationPrevented": true,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -560,13 +992,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -589,13 +1046,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -618,13 +1100,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -647,13 +1154,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -676,13 +1208,38 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "low",
-        "reveal": "instant",
-        "emphasis": "none",
-        "emphasisTier": "background",
-        "emphasisReason": "Low signals"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -712,13 +1269,38 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "assertive",
+          "reason": [
+            "soft emphasis moment"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -741,13 +1323,39 @@
           ]
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": true
+        }
       }
     },
     {
@@ -777,13 +1385,38 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "low",
-        "density": "medium",
-        "reveal": "instant",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (3)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "diagram strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     },
     {
@@ -813,13 +1446,38 @@
           "blur": 2
         }
       ],
-      "_trace": {
-        "emotion": "medium",
-        "density": "high",
-        "reveal": "stagger",
-        "emphasis": "soft",
-        "emphasisTier": "secondary",
-        "emphasisReason": "Medium emotion (4)"
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 7,
+          "action": "split",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "stagger",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "High density (7) requires calm motion"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        }
       }
     }
   ]

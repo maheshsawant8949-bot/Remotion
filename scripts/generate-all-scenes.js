@@ -70,6 +70,96 @@ function determineEmphasis(emotion, density, reveal, history) {
   return { level: 'none', tier: 'background', reason: 'Low signals' };
 }
 
+function detectEmotionalPolarity(intentType, text) {
+  const upwardKeywords = ['awe', 'triumph', 'excitement', 'urgency', 'breakthrough', 'celebration'];
+  const downwardKeywords = ['somber', 'reflective', 'melancholic', 'loss', 'quiet', 'contemplative'];
+  
+  const combined = (intentType + ' ' + text).toLowerCase();
+  
+  if (upwardKeywords.some(kw => combined.includes(kw))) return 'upward';
+  if (downwardKeywords.some(kw => combined.includes(kw))) return 'downward';
+  
+  return 'neutral';
+}
+
+function determineMotionBehavior(emotion, polarity, density, emphasis, strategy, previousBehavior, motionHistory) {
+  const reasons = [];
+  
+  // STEP 1: Recovery bias
+  if (previousBehavior === 'assertive' || previousBehavior === 'energetic') {
+    if (emotion < 8) {
+      reasons.push(`Recovery bias after ${previousBehavior}`, `Emotion ${emotion} < 8`);
+      return { behavior: 'calm', reason: reasons, recoveryBiasApplied: true };
+    }
+  }
+  
+  // STEP 2: High density → calm
+  if (density >= 7) {
+    reasons.push(`High density (${density}) requires calm motion`);
+    return { behavior: 'calm', reason: reasons };
+  }
+  
+  // STEP 3: Process/diagram → technical (WITH FREQUENCY GOVERNOR)
+  // Technical for: diagram/process with (no emphasis OR density <= 5)
+  // BUT: Enforce global 25% limit via frequency governor
+  if ((strategy === 'process' || strategy === 'diagram') && (emphasis === 'none' || density <= 5)) {
+    // Check frequency governor: technical should not exceed 25% of recent history
+    const recentTechnical = motionHistory.slice(-10).filter(b => b === 'technical').length;
+    const technicalPercent = motionHistory.length > 0 ? (recentTechnical / Math.min(motionHistory.length, 10)) * 100 : 0;
+    const technicalAllowed = technicalPercent < 25;
+    
+    if (technicalAllowed) {
+      reasons.push(`${strategy} strategy (density=${density}, emphasis=${emphasis})`);
+      return { behavior: 'technical', reason: reasons };
+    } else {
+      reasons.push(`${strategy} strategy but technical frequency limit reached`, `Technical already at ${Math.round(technicalPercent)}% (max 25%)`);
+      return { behavior: 'calm', reason: reasons, governorApplied: true };
+    }
+  }
+  
+  // Check inflation (25% limit on assertive/energetic)
+  const recentKinetic = motionHistory.slice(-10).filter(b => b === 'assertive' || b === 'energetic').length;
+  const inflationPercent = motionHistory.length > 0 ? (recentKinetic / Math.min(motionHistory.length, 10)) * 100 : 0;
+  const inflationAllowed = inflationPercent < 25;
+  
+  // STEP 4: Peak moment → energetic (ONLY if upward polarity + allowed)
+  if (emphasis === 'strong' && emotion >= 7) {
+    if (polarity === 'upward') {
+      if (inflationAllowed) {
+        reasons.push(`Peak moment (strong emphasis, emotion ${emotion})`, 'Upward polarity allows energetic');
+        return { behavior: 'energetic', reason: reasons };
+      } else {
+        reasons.push('Peak moment but inflation prevented', `Assertive/energetic already at ${Math.round(inflationPercent)}%`);
+        return { behavior: 'calm', reason: reasons, inflationPrevented: true };
+      }
+    }
+    
+    // Downward or neutral → assertive
+    if (inflationAllowed) {
+      reasons.push(`Peak moment (strong emphasis, emotion ${emotion})`, `${polarity} polarity → assertive (not energetic)`);
+      return { behavior: 'assertive', reason: reasons };
+    } else {
+      reasons.push('Peak moment but inflation prevented', `Assertive/energetic already at ${Math.round(inflationPercent)}%`);
+      return { behavior: 'calm', reason: reasons, inflationPrevented: true };
+    }
+  }
+  
+  // STEP 5: Emphasis → assertive (if allowed)
+  if (emphasis === 'soft' || emphasis === 'strong') {
+    if (inflationAllowed) {
+      reasons.push(`${emphasis} emphasis moment`);
+      return { behavior: 'assertive', reason: reasons };
+    } else {
+      reasons.push(`${emphasis} emphasis but inflation prevented`, `Assertive/energetic already at ${Math.round(inflationPercent)}%`);
+      return { behavior: 'calm', reason: reasons, inflationPrevented: true };
+    }
+  }
+  
+  // STEP 6: Default → calm
+  reasons.push('Default state (no emphasis, normal weight)');
+  return { behavior: 'calm', reason: reasons };
+}
+
 function getEnterAnimation(reveal) {
   const map = {
     'instant': 'fade',
@@ -94,6 +184,7 @@ function getPosition(strategy) {
 // Generate scenes
 const scenes = [];
 const emphasisHistory = [];
+const motionHistory = [];
 
 scripts.forEach((script, index) => {
   const sceneId = index + 1;
@@ -106,9 +197,13 @@ scripts.forEach((script, index) => {
   const density = calculateDensity(text);
   const reveal = determineReveal(emotion, density);
   const emphasis = determineEmphasis(emotion, density, reveal, emphasisHistory);
+  const polarity = detectEmotionalPolarity(intentType, text);
+  const previousBehavior = motionHistory[motionHistory.length - 1];
+  const motion = determineMotionBehavior(emotion, polarity, density, emphasis.level, strategy, previousBehavior, motionHistory);
   
   // Update history
   emphasisHistory.push(emphasis.level);
+  motionHistory.push(motion.behavior);
   
   // Duration based on density
   const duration = density > 6 ? 8 : density > 4 ? 6 : 5;
@@ -134,13 +229,34 @@ scripts.forEach((script, index) => {
         ]
       }
     ],
-    _trace: {
-      emotion: emotion >= 7 ? 'high' : emotion >= 4 ? 'medium' : 'low',
-      density: density >= 6 ? 'high' : density >= 4 ? 'medium' : 'low',
-      reveal,
-      emphasis: emphasis.level,
-      emphasisTier: emphasis.tier,
-      emphasisReason: emphasis.reason
+    trace: {
+      emotionalAnalysis: {
+        score: emotion,
+        level: emotion >= 7 ? 'high' : emotion >= 4 ? 'medium' : 'low',
+        triggers: []
+      },
+      densityAnalysis: {
+        score: density,
+        action: density >= 6 ? 'split' : 'maintain',
+        signals: {}
+      },
+      revealStrategy: {
+        chosen: reveal,
+        reason: [],
+        governorApplied: false
+      },
+      emphasis: {
+        level: emphasis.level,
+        tier: emphasis.tier,
+        reason: [emphasis.reason],
+        governorApplied: false
+      },
+      motionBehavior: {
+        behavior: motion.behavior,
+        reason: motion.reason,
+        inflationPrevented: motion.inflationPrevented || false,
+        recoveryBiasApplied: motion.recoveryBiasApplied || false
+      }
     }
   };
   
@@ -162,12 +278,14 @@ scripts.forEach((script, index) => {
   const emotionLabel = emotion >= 7 ? 'high' : emotion >= 4 ? 'medium' : 'low';
   const densityLabel = density >= 6 ? 'high' : density >= 4 ? 'medium' : 'low';
   const pacing = density > 6 ? 'slow' : density > 4 ? 'normal' : 'fast';
+  const motionIcon = motion.behavior === 'calm' ? '😌' : motion.behavior === 'technical' ? '🔧' : motion.behavior === 'assertive' ? '💪' : '⚡';
   
   console.log(`scene_${String(sceneId).padStart(2, '0')}:`);
   console.log(`  weight: ${emotionLabel}`);
   console.log(`  strategy: ${strategy}`);
   console.log(`  reveal: ${reveal}`);
   console.log(`  emphasis: ${emphasis.level}`);
+  console.log(`  motion: ${motionIcon} ${motion.behavior}`);
   console.log(`  pacing: ${pacing}`);
   console.log('');
 });

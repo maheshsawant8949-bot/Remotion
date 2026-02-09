@@ -116,6 +116,13 @@ export type DecisionTrace = {
       reason: string[];
       governorApplied?: boolean;
   };
+  // Motion Behavior Trace
+  motionBehavior?: {
+      behavior: "calm" | "assertive" | "energetic" | "technical";
+      reason: string[];
+      inflationPrevented?: boolean;
+      recoveryBiasApplied?: boolean;
+  };
 };
 
 export type SceneIntent = {
@@ -133,6 +140,8 @@ export type SceneIntent = {
   revealHistory?: ("instant" | "stagger" | "spotlight" | "build")[];
   // Emphasis history for frequency governor (last 3 scenes)
   emphasisHistory?: ("none" | "soft" | "strong")[];
+  // Motion history for inflation prevention and recovery bias (last 10 scenes)
+  motionHistory?: ("calm" | "assertive" | "energetic" | "technical")[];
 };
 
 export type IntentTemplateMap = {

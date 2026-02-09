@@ -4,6 +4,7 @@ import { EmotionalAnalyzer } from '../pacing-engine/emotional-analyzer';
 import { getRevealStyle, isRevealEligible } from '../pacing-engine/reveal-eligibility';
 import { RevealResolver } from '../reveal-engine/reveal-resolver';
 import { EmphasisResolver } from '../emphasis-engine/emphasis-resolver';
+import { BehaviorResolver } from '../motion-behavior/behavior-resolver';
 import { Heuristics } from '../visual-reasoner/heuristics';
 
 export interface CompiledScene {
@@ -246,6 +247,20 @@ export const SceneFactory = {
         recentHistory: intent.emphasisHistory || [] // Use provided history or empty
     });
     
+    // 8. Motion Behavior Resolution (AFTER emphasis, BEFORE finalization)
+    // This determines motion philosophy (behavior, not animation)
+    // CRITICAL: Motion is POST-RHYTHM conceptually, but we resolve per-scene with global context
+    const motionDecision = BehaviorResolver.resolve({
+        emotionalWeight,
+        emotionalPolarity: BehaviorResolver.detectEmotionalPolarity(intent.type),
+        density: densityScore,
+        emphasis: emphasisDecision.level,
+        strategy: selectedTemplate,
+        intentType: intent.type,
+        previousBehavior: intent.motionHistory?.[intent.motionHistory.length - 1],
+        recentHistory: intent.motionHistory || [] // Use provided history or empty
+    });
+    
     // Augment trace with selection logic
     const finalTrace = {
         ...intent.trace,
@@ -260,6 +275,7 @@ export const SceneFactory = {
         },
         revealStrategy: revealDecision,
         emphasis: emphasisDecision,
+        motionBehavior: motionDecision,
         pacing: {
             ...intent.trace?.pacing,
             // We might not have full pacing info here if DurationResolver runs elsewhere, 
