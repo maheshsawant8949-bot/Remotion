@@ -1,0 +1,107 @@
+{
+  "airplanes_stay_in": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "every_single_day": {
+    "emotionalWeight": "medium",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false
+  },
+  "a_jet_engine": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false
+  },
+  "steel_is_incredibly": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "more_than_one": {
+    "emotionalWeight": "high",
+    "strategy": "diagram",
+    "pacing": "slow",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "first_the_rocket": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "slow",
+    "density": "high",
+    "revealEligible": true
+  },
+  "the_pacific_ocean": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "only_3_of": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "low",
+    "revealEligible": false
+  },
+  "electric_vehicles_reduce": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "slow",
+    "density": "high",
+    "revealEligible": false
+  },
+  "for_families_living": {
+    "emotionalWeight": "medium",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "a_billion_ants": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "low",
+    "revealEligible": false
+  },
+  "the_james_webb": {
+    "emotionalWeight": "medium",
+    "strategy": "hero",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false
+  },
+  "a_cheetah_can": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false
+  },
+  "photosynthesis_converts_light": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false
+  },
+  "scientists_estimate_there": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false
+  }
+}

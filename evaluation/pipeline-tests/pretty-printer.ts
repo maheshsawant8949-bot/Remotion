@@ -1,13 +1,22 @@
 import { DiffResult } from './diff-engine';
 
 export class PrettyPrinter {
-  static formatResult(scriptId: string, results: Record<string, DiffResult>): string {
+  static formatResult(
+    scriptId: string, 
+    results: Record<string, DiffResult>,
+    revealStrategy?: string,
+    revealReason?: string,
+    governorApplied?: boolean
+  ): string {
     let output = `SCRIPT: ${scriptId}\n`;
     output += `-----------------------------------\n`;
     
     let allPass = true;
 
     for (const [key, result] of Object.entries(results)) {
+        // Skip reveal fields in diff output (we'll show them separately)
+        if (key === 'revealStrategy' || key === 'revealReason') continue;
+        
         const icon = result.pass ? '✅' : '❌';
         // Format key to be readable (emotionalWeight -> Emotional Weight)
         const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
@@ -17,6 +26,18 @@ export class PrettyPrinter {
         if (!result.pass) {
             allPass = false;
             output += `\n  Expected: ${String(result.expected).toUpperCase()}`;
+        }
+        output += `\n`;
+    }
+    
+    // Add reveal strategy info
+    if (revealStrategy) {
+        output += `\nReveal: ${revealStrategy.toUpperCase()}`;
+        if (revealReason) {
+            output += `\nReason: ${revealReason}`;
+        }
+        if (governorApplied) {
+            output += ` [GOVERNOR APPLIED]`;
         }
         output += `\n`;
     }

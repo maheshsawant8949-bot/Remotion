@@ -101,6 +101,21 @@ export type DecisionTrace = {
       level: "low" | "medium" | "high";
       triggers: string[];
   };
+  // Reveal Strategy Trace
+  revealStrategy?: {
+      chosen: "instant" | "stagger" | "spotlight" | "build";
+      reason: string[];
+      governorApplied?: boolean;
+  };
+  // Emphasis Level Trace
+  emphasis?: {
+      level: "none" | "soft" | "strong";
+      primary?: string;      // ONE primary target element
+      secondary?: string[];  // Supporting elements
+      tier: "primary" | "secondary" | "background";  // Priority tier
+      reason: string[];
+      governorApplied?: boolean;
+  };
 };
 
 export type SceneIntent = {
@@ -114,6 +129,10 @@ export type SceneIntent = {
   competingStrategies?: string[]; 
   // Pre-calculated emotional weight (optional override)
   emotionalWeight?: number; 
+  // Reveal history for frequency governor (last 3 scenes)
+  revealHistory?: ("instant" | "stagger" | "spotlight" | "build")[];
+  // Emphasis history for frequency governor (last 3 scenes)
+  emphasisHistory?: ("none" | "soft" | "strong")[];
 };
 
 export type IntentTemplateMap = {

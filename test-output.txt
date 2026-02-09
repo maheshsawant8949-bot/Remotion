@@ -1,0 +1,96 @@
+﻿
+> remotion-auto-video@1.0.0 evaluate
+> npx tsx evaluation/pipeline-tests/run-tests.ts
+
+
+≡ƒÄ¼ PIPELINE EVALUATION HARNESS
+===============================
+
+SCRIPT: every_second_the
+[WARNING] No expected data found.
+
+Actual: {
+  "emotionalWeight": "low",
+  "strategy": "diagram",
+  "pacing": "fast",
+  "density": "medium",
+  "revealEligible": false,
+  "revealStrategy": "instant",
+  "revealReason": "Instant: Default for low-medium weight (1.5) and density (4)"
+}
+
+Reveal: INSTANT
+Reason: Instant: Default for low-medium weight (1.5) and density (4)
+
+node.exe : C:\Users\mahesh.s
+awant\Desktop\Remotion\remot
+ion-auto-video\src\scene-com
+piler\scene-factory.ts:119
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (C:\Us  
+  ers\mahesh...-factory.t   
+ s:119:String) [], Remot    
+eException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+        const isPrimary = 
+mapping.primary === 
+candidateType;
+                            
+      ^
+
+TypeError: Cannot read 
+properties of undefined 
+(reading 'primary')
+    at Object.create (C:\Use
+rs\mahesh.sawant\Desktop\Rem
+otion\remotion-auto-video\sr
+c\scene-compiler\scene-facto
+ry.ts:119:35)
+    at <anonymous> (C:\Users
+\mahesh.sawant\Desktop\Remot
+ion\remotion-auto-video\eval
+uation\pipeline-tests\run-te
+sts.ts:118:30)
+    at Array.forEach 
+(<anonymous>)
+    at fs (C:\Users\mahesh.s
+awant\Desktop\Remotion\remot
+ion-auto-video\evaluation\pi
+peline-tests\run-tests.ts:85
+:9)
+    at Object.<anonymous> (C
+:\Users\mahesh.sawant\Deskto
+p\Remotion\remotion-auto-vid
+eo\evaluation\pipeline-tests
+\run-tests.ts:265:34)
+    at Module._compile (node
+:internal/modules/cjs/loader
+:1761:14)
+    at Object.transformer (C
+:\Users\mahesh.sawant\AppDat
+a\Local\npm-cache\_npx\fd45a
+72a545557e9\node_modules\tsx
+\dist\register-D46fvsV_.cjs:
+3:1104)
+    at Module.load (node:int
+ernal/modules/cjs/loader:148
+1:32)
+    at Module._load (node:in
+ternal/modules/cjs/loader:13
+00:12)
+    at 
+TracingChannel.traceSync (no
+de:diagnostics_channel:328:1
+4)
+
+Node.js v24.11.1

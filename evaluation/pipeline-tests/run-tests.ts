@@ -9,6 +9,7 @@ import { getRevealStyle } from '../../src/pacing-engine/reveal-eligibility';
 import { Heuristics } from '../../src/visual-reasoner/heuristics';
 import { DiffEngine, DiffResult } from './diff-engine';
 import { PrettyPrinter } from './pretty-printer';
+import { CinematicValidator } from './cinematic-validator';
 
 // Types
 type TestScript = {
@@ -39,10 +40,12 @@ type ExpectedOutcome = {
 const SCRIPTS_PATH = path.join(__dirname, 'scripts.json');
 const EXPECTED_PATH = path.join(__dirname, 'expected.json');
 const SNAPSHOT_PATH = path.join(__dirname, 'snapshot.json');
+const CINEMATIC_BASELINE_PATH = path.join(__dirname, '../baselines/cinematic-v1.json');
 
 // CLI Args
 const args = process.argv.slice(2);
 const snapshotMode = args.includes('--snapshot');
+const sequenceMode = args.includes('--sequence');
 const scriptFilterIndex = args.indexOf('--script');
 const scriptFilter = scriptFilterIndex !== -1 ? args[scriptFilterIndex + 1] : null;
 
@@ -54,7 +57,28 @@ let passCount = 0;
 let failCount = 0;
 const actualResults: Record<string, any> = {};
 
+// Reveal Strategy Metrics
+let spotlightCount = 0;
+let buildCount = 0;
+let staggerCount = 0;
+let instantCount = 0;
+let governorDowngradeCount = 0;
+
+// Emphasis Level Metrics
+let emphasisNoneCount = 0;
+let emphasisSoftCount = 0;
+let emphasisStrongCount = 0;
+let emphasisGovernorDowngradeCount = 0;
+
+// Sequence Mode: Track reveal history across scenes
+const revealHistory: string[] = [];
+let consecutiveRevealHeavyScenes = 0;
+const MAX_CONSECUTIVE_REVEAL_HEAVY = 2;
+
 console.log("\n🎬 PIPELINE EVALUATION HARNESS");
+if (sequenceMode) {
+    console.log("📊 SEQUENCE MODE: Tracking reveal frequency across scenes");
+}
 console.log("===============================\n");
 
 // Execute
@@ -87,7 +111,8 @@ scripts.forEach(script => {
       // timing removed
       competingStrategies: strategyNames,
       trace: { inputScript: script.text },
-      emotionalWeight: emotion.score // Pass explicit weight to Factory
+      emotionalWeight: emotion.score, // Pass explicit weight to Factory
+      revealHistory: sequenceMode ? [...revealHistory] as ("instant" | "stagger" | "spotlight" | "build")[] : undefined // Pass history in sequence mode
   };
 
   const scene = SceneFactory.create(intent);
@@ -97,12 +122,59 @@ scripts.forEach(script => {
   const { pattern } = Heuristics.normalizeIntent(script.text);
   const revealStyle = getRevealStyle(emotion.score, density.score, pattern);
   
+  // Extract reveal strategy from scene trace
+  const revealStrategy = scene.trace?.revealStrategy;
+  const revealChosen = revealStrategy?.chosen || 'instant';
+  const revealReason = revealStrategy?.reason?.[0] || 'Default';
+  const governorApplied = revealStrategy?.governorApplied || false;
+  
+  // Sequence Mode: Track reveal history and consecutive reveal-heavy scenes
+  if (sequenceMode) {
+      // Add to history (keep last 3)
+      revealHistory.push(revealChosen);
+      if (revealHistory.length > 3) {
+          revealHistory.shift();
+      }
+      
+      // Track consecutive reveal-heavy scenes (spotlight or build)
+      if (revealChosen === 'spotlight' || revealChosen === 'build') {
+          consecutiveRevealHeavyScenes++;
+      } else {
+          consecutiveRevealHeavyScenes = 0; // Reset counter
+      }
+  }
+  
+  // Track reveal metrics
+  if (revealChosen === 'spotlight') spotlightCount++;
+  else if (revealChosen === 'build') buildCount++;
+  else if (revealChosen === 'stagger') staggerCount++;
+  else if (revealChosen === 'instant') instantCount++;
+  
+  if (governorApplied) governorDowngradeCount++;
+  
+  // Extract emphasis from scene trace
+  const emphasisLevel = scene.trace?.emphasis;
+  const emphasisChosen = emphasisLevel?.level || 'none';
+  const emphasisPrimary = emphasisLevel?.primary;
+  const emphasisSecondary = emphasisLevel?.secondary;
+  const emphasisTier = emphasisLevel?.tier || 'background';
+  const emphasisGovernorApplied = emphasisLevel?.governorApplied || false;
+  
+  // Track emphasis metrics
+  if (emphasisChosen === 'none') emphasisNoneCount++;
+  else if (emphasisChosen === 'soft') emphasisSoftCount++;
+  else if (emphasisChosen === 'strong') emphasisStrongCount++;
+  
+  if (emphasisGovernorApplied) emphasisGovernorDowngradeCount++;
+  
   const actual = {
       emotionalWeight: emotion.level,
       strategy: scene.layout, // The final selected layout
       pacing: scene.trace?.pacing?.profile || 'normal',
       density: density.score >= 7 ? 'high' : (density.score >= 4 ? 'medium' : 'low'),
-      revealEligible: revealStyle === 'gradual'
+      revealEligible: revealStyle === 'gradual',
+      revealStrategy: revealChosen,
+      revealReason: revealReason
   };
 
   actualResults[scriptId] = actual;
@@ -119,16 +191,70 @@ scripts.forEach(script => {
       if (isPass) passCount++; else failCount++;
 
       // Print
-      console.log(PrettyPrinter.formatResult(scriptId, diffs));
+      console.log(PrettyPrinter.formatResult(scriptId, diffs, revealChosen, revealReason, governorApplied));
   } else {
       console.log(`SCRIPT: ${scriptId}`);
       console.log(`[WARNING] No expected data found.\n`);
       console.log(`Actual: ${JSON.stringify(actual, null, 2)}\n`);
+      console.log(`Reveal: ${revealChosen.toUpperCase()}`);
+      console.log(`Reason: ${revealReason}${governorApplied ? ' [GOVERNOR APPLIED]' : ''}\n`);
   }
 });
 
 // Summary
+const totalScripts = instantCount + staggerCount + spotlightCount + buildCount;
+const instantPercentage = totalScripts > 0 ? Math.round((instantCount / totalScripts) * 100) : 0;
+
 PrettyPrinter.printSummary(passCount + failCount, passCount, failCount);
+
+// Reveal Strategy Metrics
+console.log("\n📊 REVEAL STRATEGY METRICS");
+console.log("===================================");
+console.log(`Instant:   ${instantCount} (${instantPercentage}%)`);
+console.log(`Stagger:   ${staggerCount}`);
+console.log(`Spotlight: ${spotlightCount}`);
+console.log(`Build:     ${buildCount}`);
+if (governorDowngradeCount > 0) {
+    console.log(`\n⚠️  Governor Downgrades: ${governorDowngradeCount}`);
+}
+if (sequenceMode) {
+    console.log(`\n📈 Sequence Tracking:`);
+    console.log(`   Reveal History: [${revealHistory.join(', ')}]`);
+    console.log(`   Consecutive Reveal-Heavy: ${consecutiveRevealHeavyScenes}`);
+    if (consecutiveRevealHeavyScenes > MAX_CONSECUTIVE_REVEAL_HEAVY) {
+        console.log(`   ⚠️  WARNING: Exceeded max consecutive reveal-heavy scenes (${MAX_CONSECUTIVE_REVEAL_HEAVY})`);
+    }
+}
+console.log("===================================\n");
+
+// Emphasis Level Metrics
+console.log("\n🎯 EMPHASIS LEVEL METRICS");
+console.log("===================================");
+const totalEmphasisScripts = emphasisNoneCount + emphasisSoftCount + emphasisStrongCount;
+const nonePercentage = totalEmphasisScripts > 0 ? Math.round((emphasisNoneCount / totalEmphasisScripts) * 100) : 0;
+const softPercentage = totalEmphasisScripts > 0 ? Math.round((emphasisSoftCount / totalEmphasisScripts) * 100) : 0;
+const strongPercentage = totalEmphasisScripts > 0 ? Math.round((emphasisStrongCount / totalEmphasisScripts) * 100) : 0;
+
+console.log(`None:   ${emphasisNoneCount} (${nonePercentage}%)`);
+console.log(`Soft:   ${emphasisSoftCount} (${softPercentage}%)`);
+console.log(`Strong: ${emphasisStrongCount} (${strongPercentage}%)`);
+if (emphasisGovernorDowngradeCount > 0) {
+    console.log(`\n⚠️  Governor Downgrades: ${emphasisGovernorDowngradeCount}`);
+}
+console.log("===================================\n");
+
+// Cinematic Baseline Validation
+if (fs.existsSync(CINEMATIC_BASELINE_PATH)) {
+    const cinematicResult = CinematicValidator.validate(actualResults, CINEMATIC_BASELINE_PATH);
+    CinematicValidator.printResults(cinematicResult);
+    
+    if (!cinematicResult.pass) {
+        console.log("\n❌ CINEMATIC REGRESSION DETECTED");
+        console.log("Spotlight/build frequency increased beyond baseline constraints.");
+        console.log("This violates the scarcity principle of cinematic reveals.\n");
+        process.exit(1);
+    }
+}
 
 // Snapshot
 if (snapshotMode) {

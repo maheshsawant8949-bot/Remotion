@@ -1,0 +1,826 @@
+{
+  "meta": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "grammarVersion": "1.0",
+      "duration_sec": 8,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_1",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade_up",
+          "children": [
+            {
+              "type": "text",
+              "content": "Every second, the modern world moves across invisible highways of light — trillions of bits of data racing beneath oc...",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "high",
+        "reveal": "stagger",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (4)"
+      }
+    },
+    {
+      "scene_id": 2,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_2",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Nearly 95% of all international internet traffic depends on just a few hundred undersea cables stretching across the ...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_2",
+          "type": "focus",
+          "target_id": "content_2",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 3,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_3",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "These cables carry everything — financial transactions, emergency communications, military coordination, and the mess...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_3",
+          "type": "focus",
+          "target_id": "content_3",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 4,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_4",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Yet despite supporting the digital backbone of civilization, most people have never seen one — and rarely think about...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_4",
+          "type": "focus",
+          "target_id": "content_4",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (4)"
+      }
+    },
+    {
+      "scene_id": 5,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_5",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "In 2008, ships traveling through the Mediterranean accidentally severed multiple cables, slowing internet speeds acro...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_5",
+          "type": "focus",
+          "target_id": "content_5",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (4)"
+      }
+    },
+    {
+      "scene_id": 6,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_6",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Banks struggled to process payments, flights were delayed, and entire businesses temporarily lost their connection to...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_6",
+          "type": "focus",
+          "target_id": "content_6",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 7,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_7",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "But that disruption was small compared to what experts fear today.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (6)"
+      }
+    },
+    {
+      "scene_id": 8,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "hero",
+      "layers": [
+        {
+          "id": "content_8",
+          "type": "group",
+          "position": "heroVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Modern mega-cables can transmit over 250 terabits per second — enough capacity to stream millions of ultra-high-defin...",
+              "font_size": 56
+            }
+          ]
+        },
+        {
+          "id": "emphasis_8",
+          "type": "focus",
+          "target_id": "content_8",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 9,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_9",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Which means damaging even a single major cable could ripple across continents in minutes.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 10,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_10",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "So how are these fragile lifelines actually built?",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (4)"
+      }
+    },
+    {
+      "scene_id": 11,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "process",
+      "layers": [
+        {
+          "id": "content_11",
+          "type": "group",
+          "position": "diagram.timeline",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "First, specialized ships map the ocean floor to avoid underwater landslides, volcanic zones, and sharp geological for...",
+              "font_size": 48
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 12,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "process",
+      "layers": [
+        {
+          "id": "content_12",
+          "type": "group",
+          "position": "diagram.timeline",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Then, massive reels slowly unspool thousands of kilometers of fiber optic cable while robotic plows bury them beneath...",
+              "font_size": 48
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 13,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "process",
+      "layers": [
+        {
+          "id": "content_13",
+          "type": "group",
+          "position": "diagram.timeline",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Finally, landing stations connect these cables to terrestrial networks — completing a system that can take years and ...",
+              "font_size": 48
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 14,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_14",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Despite this engineering, cables remain surprisingly vulnerable.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 15,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_15",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Fishing anchors, earthquakes, and even curious sharks have been responsible for damaging critical lines.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (6)"
+      }
+    },
+    {
+      "scene_id": 16,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_16",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "In fact, experts estimate that over 100 cable faults occur globally every single year.",
+              "font_size": 48
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 17,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_17",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Most are repaired quickly — but a coordinated attack or major natural disaster could create outages lasting weeks.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (6)"
+      }
+    },
+    {
+      "scene_id": 18,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_18",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Imagine financial markets freezing, cloud services going dark, and millions suddenly cut off from communication.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 19,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_19",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "This is why governments increasingly treat cable infrastructure as a matter of national security.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 20,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_20",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Some routes are now monitored by naval patrols, while new cables are designed with additional shielding.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 21,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_21",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Others are exploring satellite networks as backup systems — though satellites still lack the raw capacity of fiber.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 22,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_22",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "And demand is only accelerating.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "low",
+        "reveal": "instant",
+        "emphasis": "none",
+        "emphasisTier": "background",
+        "emphasisReason": "Low signals"
+      }
+    },
+    {
+      "scene_id": 23,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "hero",
+      "layers": [
+        {
+          "id": "content_23",
+          "type": "group",
+          "position": "heroVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "By 2030, global internet traffic is expected to exceed one zettabyte per year — that’s a trillion gigabytes moving ac...",
+              "font_size": 56
+            }
+          ]
+        },
+        {
+          "id": "emphasis_23",
+          "type": "focus",
+          "target_id": "content_23",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 24,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_24",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "To keep up, companies are racing to deploy next-generation cables capable of carrying far more data with lower latency.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 25,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_25",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Yet the paradox remains — humanity’s most advanced digital systems still depend on physical threads resting quietly o...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_25",
+          "type": "focus",
+          "target_id": "content_25",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "low",
+        "density": "medium",
+        "reveal": "instant",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (3)"
+      }
+    },
+    {
+      "scene_id": 26,
+      "grammarVersion": "1.0",
+      "duration_sec": 8,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_26",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade_up",
+          "children": [
+            {
+              "type": "text",
+              "content": "So the next time a message reaches someone across the world in milliseconds, remember — it likely traveled through da...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_26",
+          "type": "focus",
+          "target_id": "content_26",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "_trace": {
+        "emotion": "medium",
+        "density": "high",
+        "reveal": "stagger",
+        "emphasis": "soft",
+        "emphasisTier": "secondary",
+        "emphasisReason": "Medium emotion (4)"
+      }
+    }
+  ]
+}

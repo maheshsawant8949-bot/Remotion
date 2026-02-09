@@ -1,47 +1,106 @@
 [
   {
-    "text": "Airplanes stay in the sky because their wings are shaped to create a difference in air pressure. As air moves faster over the curved top of the wing than beneath it, lift is generated, allowing the aircraft to overcome gravity."
-  },
+  "text": "Every second, the modern world moves across invisible highways of light — trillions of bits of data racing beneath oceans through cables no thicker than a garden hose.",
+  "intentType": "context_setting"
+},
   {
-    "text": "Every single day, humanity sends over 300 million tons of carbon dioxide into the atmosphere — an invisible blanket that continues to trap heat around the planet."
-  },
+  "text": "Nearly 95% of all international internet traffic depends on just a few hundred undersea cables stretching across the planet.",
+  "intentType": "scale_reveal"
+},
   {
-    "text": "A jet engine works by compressing incoming air, mixing it with fuel, igniting the mixture, and expelling the exhaust at extremely high speed — producing thrust through Newton’s third law of motion."
-  },
+  "text": "These cables carry everything — financial transactions, emergency communications, military coordination, and the messages you send every single day.",
+  "intentType": "importance_expansion"
+},
   {
-    "text": "Steel is incredibly strong — but under the right conditions, even it can bend. When temperatures rise high enough, the metal softens, losing the rigidity engineers depend on."
-  },
+  "text": "Yet despite supporting the digital backbone of civilization, most people have never seen one — and rarely think about what would happen if they failed.",
+  "intentType": "curiosity_gap"
+},
+ {
+  "text": "In 2008, ships traveling through the Mediterranean accidentally severed multiple cables, slowing internet speeds across parts of Europe, the Middle East, and India almost overnight.",
+  "intentType": "historical_example"
+},
   {
-    "text": "More than one million children are hospitalized each year due to air pollution — a crisis most people never even see."
-  },
+  "text": "Banks struggled to process payments, flights were delayed, and entire businesses temporarily lost their connection to the global economy.",
+  "intentType": "human_impact"
+},
   {
-    "text": "First, the rocket ignites. Then it accelerates through the lower atmosphere. Finally, once it reaches orbital velocity, it stops falling back to Earth and begins circling the planet."
-  },
+  "text": "But that disruption was small compared to what experts fear today.",
+  "intentType": "tension_build"
+},
   {
-    "text": "The Pacific Ocean is the largest ocean on Earth, covering more than 30% of the planet’s surface."
-  },
+  "text": "Modern mega-cables can transmit over 250 terabits per second — enough capacity to stream millions of ultra-high-definition videos simultaneously.",
+  "intentType": "awe_scale"
+},
   {
-    "text": "Only 3% of Earth’s water is fresh — and most of that is locked away in glaciers."
-  },
+  "text": "Which means damaging even a single major cable could ripple across continents in minutes.",
+  "intentType": "consequence"
+},
   {
-    "text": "Electric vehicles reduce emissions, improve urban air quality, lower long-term fuel costs, and require less mechanical maintenance than traditional combustion cars."
-  },
+  "text": "So how are these fragile lifelines actually built?",
+  "intentType": "transition_to_process"
+},
   {
-    "text": "For families living near active war zones, the sound of aircraft overhead is not a symbol of travel — but of fear."
-  },
+  "text": "First, specialized ships map the ocean floor to avoid underwater landslides, volcanic zones, and sharp geological formations.",
+  "intentType": "sequential_step"
+},
   {
-    "text": "A billion ants live in a single large colony."
-  },
+  "text": "Then, massive reels slowly unspool thousands of kilometers of fiber optic cable while robotic plows bury them beneath the seabed.",
+  "intentType": "sequential_step"
+},
   {
-    "text": "The James Webb Space Telescope can detect light that has traveled for over 13 billion years, allowing us to see some of the earliest galaxies ever formed."
-  },
+  "text": "Finally, landing stations connect these cables to terrestrial networks — completing a system that can take years and billions of dollars to construct.",
+  "intentType": "sequential_step"
+},
   {
-    "text": "A cheetah can accelerate from zero to sixty miles per hour in just three seconds — faster than most sports cars."
-  },
+  "text": "Despite this engineering, cables remain surprisingly vulnerable.",
+  "intentType": "contrast"
+},
   {
-    "text": "Photosynthesis converts light energy into chemical energy by exciting electrons inside chlorophyll molecules, initiating a chain of reactions that ultimately produce glucose."
-  },
-  {
-    "text": "Scientists estimate there are more stars in the universe than grains of sand on all the beaches on Earth combined."
-  }
+  "text": "Fishing anchors, earthquakes, and even curious sharks have been responsible for damaging critical lines.",
+  "intentType": "unexpected_detail"
+},
+{
+  "text": "In fact, experts estimate that over 100 cable faults occur globally every single year.",
+  "intentType": "statistic_reveal"
+},
+{
+  "text": "Most are repaired quickly — but a coordinated attack or major natural disaster could create outages lasting weeks.",
+  "intentType": "risk_escalation"
+},
+{
+  "text": "Imagine financial markets freezing, cloud services going dark, and millions suddenly cut off from communication.",
+  "intentType": "scenario_visualization"
+},
+{
+  "text": "This is why governments increasingly treat cable infrastructure as a matter of national security.",
+  "intentType": "importance_reframe"
+},
+{
+  "text": "Some routes are now monitored by naval patrols, while new cables are designed with additional shielding.",
+  "intentType": "solution"
+},
+{
+  "text": "Others are exploring satellite networks as backup systems — though satellites still lack the raw capacity of fiber.",
+  "intentType": "balanced_explanation"
+},
+{
+  "text": "And demand is only accelerating.",
+  "intentType": "tension_build"
+},
+{
+  "text": "By 2030, global internet traffic is expected to exceed one zettabyte per year — that’s a trillion gigabytes moving across the planet.",
+  "intentType": "future_scale"
+},
+{
+  "text": "To keep up, companies are racing to deploy next-generation cables capable of carrying far more data with lower latency.",
+  "intentType": "innovation"
+},
+{
+  "text": "Yet the paradox remains — humanity’s most advanced digital systems still depend on physical threads resting quietly on the ocean floor.",
+  "intentType": "philosophical_contrast"
+},
+{
+  "text": "So the next time a message reaches someone across the world in milliseconds, remember — it likely traveled through darkness, pressure, and thousands of kilometers of silent infrastructure.",
+  "intentType": "reflective_closure"
+}
 ]

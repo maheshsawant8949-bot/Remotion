@@ -1,0 +1,162 @@
+{
+  "_metadata": {
+    "version": "cinematic-v1",
+    "created": "2026-02-08",
+    "purpose": "Protect cinematic language by freezing reveal strategy distribution",
+    "totalScripts": 15,
+    "frequencyDistribution": {
+      "instant": 13,
+      "stagger": 0,
+      "spotlight": 0,
+      "build": 2
+    },
+    "percentages": {
+      "instant": 87,
+      "stagger": 0,
+      "spotlight": 0,
+      "build": 13
+    },
+    "regressionConstraints": {
+      "maxSpotlight": 0,
+      "maxBuild": 2,
+      "minInstant": 12,
+      "description": "Fail if spotlight/build frequency increases unexpectedly"
+    },
+    "governorDowngrades": 0
+  },
+  "airplanes_stay_in": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (0) and density (5)"
+  },
+  "every_single_day": {
+    "emotionalWeight": "medium",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (4.95) and density (2)"
+  },
+  "a_jet_engine": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (0) and density (1)"
+  },
+  "steel_is_incredibly": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (1.2) and density (5)"
+  },
+  "more_than_one": {
+    "emotionalWeight": "high",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (10) and density (4)"
+  },
+  "first_the_rocket": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "slow",
+    "density": "high",
+    "revealEligible": true,
+    "revealStrategy": "build",
+    "revealReason": "Build: Diagram with high density (7) suggests system explanation"
+  },
+  "the_pacific_ocean": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (1.5) and density (6)"
+  },
+  "only_3_of": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (2) and density (2)"
+  },
+  "electric_vehicles_reduce": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "slow",
+    "density": "high",
+    "revealEligible": false,
+    "revealStrategy": "build",
+    "revealReason": "Build: Diagram with high density (7) suggests system explanation"
+  },
+  "for_families_living": {
+    "emotionalWeight": "medium",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (6.48) and density (4)"
+  },
+  "a_billion_ants": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (1.5) and density (1)"
+  },
+  "the_james_webb": {
+    "emotionalWeight": "medium",
+    "strategy": "hero",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (5.61) and density (3)"
+  },
+  "a_cheetah_can": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "fast",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (2) and density (4)"
+  },
+  "photosynthesis_converts_light": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "low",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (0) and density (1)"
+  },
+  "scientists_estimate_there": {
+    "emotionalWeight": "low",
+    "strategy": "diagram",
+    "pacing": "normal",
+    "density": "medium",
+    "revealEligible": false,
+    "revealStrategy": "instant",
+    "revealReason": "Instant: Default for low-medium weight (1.8) and density (4)"
+  }
+}

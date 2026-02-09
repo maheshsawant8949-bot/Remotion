@@ -64,6 +64,25 @@ export class EmotionalAnalyzer {
         score *= multiplier;
     }
 
+    // 4. Awe Amplifier (Controlled Elevation)
+    // Detect planetary/civilization-scale signals and boost by +1 tier (~3 points)
+    const aweSignals = [
+        'planetary', 'global', 'civilization', 'planet', 'worldwide',
+        'trillion', 'zettabyte', 'terabits', 'billion',
+        'humanity', 'entire world', 'across continents', 'international'
+    ];
+    
+    const hasAweSignal = aweSignals.some(signal => {
+        const escaped = signal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`\\b${escaped}\\b`, 'i');
+        return regex.test(script);
+    });
+    
+    if (hasAweSignal) {
+        triggers.push('AweAmplifier(+3)');
+        score += 3; // Boost by one tier (low→medium or medium→high)
+    }
+
     // HARD RULE: Clamp score to 0-10. Never exceed 10.
     const finalScore = Math.min(Math.max(score, 0), 10);
     

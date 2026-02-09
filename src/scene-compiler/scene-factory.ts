@@ -1,7 +1,9 @@
 import { INTENT_MAP, PRIMITIVES, SceneIntent, TemplateType, NarrativeRole, DecisionTrace, GRAMMAR_VERSION, DENSITY_THRESHOLD_HIGH } from './grammar-rules';
 import { SceneDensityController } from '../pacing-engine/density-controller';
 import { EmotionalAnalyzer } from '../pacing-engine/emotional-analyzer';
-import { getRevealStyle } from '../pacing-engine/reveal-eligibility';
+import { getRevealStyle, isRevealEligible } from '../pacing-engine/reveal-eligibility';
+import { RevealResolver } from '../reveal-engine/reveal-resolver';
+import { EmphasisResolver } from '../emphasis-engine/emphasis-resolver';
 import { Heuristics } from '../visual-reasoner/heuristics';
 
 export interface CompiledScene {
@@ -224,6 +226,26 @@ export const SceneFactory = {
         ? `Reveal eligible: weight=${emotionalWeight >= 4 ? '✓' : '✗'} density=${densityScore >= 7 ? '✓' : '✗'} sequence=${pattern === 'progressive_steps' ? '✓' : '✗'}`
         : 'Instant (no reveal criteria met)';
     
+    // 6. Reveal Strategy Resolution (AFTER pacing, BEFORE finalization)
+    // This determines HOW content should be presented (narrative behavior, not animation)
+    const revealDecision = RevealResolver.resolve({
+        emotionalWeight,
+        densityScore,
+        pacing: intent.pacing || 'normal',
+        strategy: selectedTemplate,
+        recentHistory: intent.revealHistory || [] // Use provided history or empty
+    });
+    
+    // 7. Emphasis Resolution (AFTER reveal, BEFORE finalization)
+    // This determines perceptual hierarchy (priority, not animation)
+    const emphasisDecision = EmphasisResolver.resolve({
+        emotionalWeight,
+        densityScore,
+        revealStrategy: revealDecision.chosen,
+        strategy: selectedTemplate,
+        recentHistory: intent.emphasisHistory || [] // Use provided history or empty
+    });
+    
     // Augment trace with selection logic
     const finalTrace = {
         ...intent.trace,
@@ -236,6 +258,8 @@ export const SceneFactory = {
             reason: revealReason,
             pattern: pattern
         },
+        revealStrategy: revealDecision,
+        emphasis: emphasisDecision,
         pacing: {
             ...intent.trace?.pacing,
             // We might not have full pacing info here if DurationResolver runs elsewhere, 
