@@ -10,6 +10,7 @@
     "@react-three/fiber": "^9.5.0",
     "@remotion/cli": "4.0.410",
     "@remotion/player": "^4.0.410",
+    "@remotion/transitions": "^4.0.410",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "^4.0.410",

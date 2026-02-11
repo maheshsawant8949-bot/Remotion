@@ -1,5 +1,6 @@
+import React from 'react';
 import { Sequence } from 'remotion';
-import videoData from './data/video.json';
+import videoData from './data/video-compiled.json';
 import { LayerRenderer } from './LayerRenderer';
 import { Captions } from './captions/Captions';
 import { FocusProvider } from './focus/FocusContext';
@@ -11,59 +12,71 @@ import { LayoutDebugger } from './layout/LayoutDebugger';
 import { validateCompiledScene } from './scene-compiler/validator';
 import { AbsoluteFill } from 'remotion';
 
+import { TransitionSeries, linearTiming } from '@remotion/transitions';
+import { getTransition, TRANSITION_MAP } from './transitions';
+
 export const Scene = () => {
   const fps = videoData.meta.fps;
 
-  let currentFrame = 0;
+  const elements: React.ReactNode[] = [];
+
+  videoData.scenes.forEach((scene: any, index: number) => {
+    const duration = Math.round(scene.duration_sec * fps);
+    
+    // Add Transition (if not first scene)
+    if (index > 0) {
+      const transitionType = scene.trace?.transitionFromPrevious?.type;
+      const transition = getTransition(transitionType);
+      
+      if (transition) {
+        const transitionSpec = TRANSITION_MAP[transitionType!] || {duration: 30};
+        elements.push(
+          <TransitionSeries.Transition
+            key={`transition-${scene.scene_id}`}
+            presentation={transition}
+            timing={linearTiming({ durationInFrames: transitionSpec.duration })}
+          />
+        );
+      }
+    }
+    
+    // Add Sequence
+    elements.push(
+      <TransitionSeries.Sequence 
+        key={`sequence-${scene.scene_id}`}
+        durationInFrames={duration}
+      >
+        {(() => {
+          try {
+              validateCompiledScene(scene);
+              return (
+                  <>
+                      {scene.layers.map((layer: any) => (
+                          <LayerRenderer key={layer.id} layer={layer} sceneLayout={scene.layout} />
+                      ))}
+                      <LayoutDebugger sceneLayout={scene.layout} />
+                      {scene.caption && <Captions words={scene.caption.words} />}
+                      <FocusOverlay />
+                  </>
+              );
+          } catch (e: any) {
+              return (
+                    <AbsoluteFill style={{backgroundColor: 'red', color: 'white', alignItems: 'center', justifyContent: 'center', fontSize: 24, fontWeight: 'bold', padding: 40}}>
+                      <div style={{marginBottom: 20}}>PIPELINE ERROR: Scene {scene.scene_id} Invalid</div>
+                      <div>{e.message}</div>
+                  </AbsoluteFill>
+              );
+          }
+        })()}
+      </TransitionSeries.Sequence>
+    );
+  });
 
   return (
     <FocusProvider>
-      {videoData.scenes.map((scene: any) => {
-        const duration = Math.round(scene.duration_sec * fps);
-        const start = currentFrame;
-        currentFrame += duration;
-
-        // PIPELINE ENFORCEMENT:
-        // The Renderer acts as the final gatekeeper.
-        try {
-            validateCompiledScene(scene);
-        } catch (e: any) {
-            console.error(e);
-            return (
-                <Sequence key={scene.scene_id} from={start} durationInFrames={duration}>
-                    <AbsoluteFill style={{backgroundColor: 'red', color: 'white', alignItems: 'center', justifyContent: 'center', fontSize: 24, fontWeight: 'bold', padding: 40}}>
-                        <div style={{marginBottom: 20}}>PIPELINE ERROR: Scene {scene.scene_id} Invalid</div>
-                        <ul style={{textAlign: 'left', fontSize: 18}}>
-                            {e.errors && e.errors.map((err: string, i: number) => (
-                                <li key={i}>{err}</li>
-                            ))}
-                            {!e.errors && <li>{e.message}</li>}
-                        </ul>
-                    </AbsoluteFill>
-                </Sequence>
-            );
-        }
-
-        return (
-          <Sequence
-            key={scene.scene_id}
-            from={start}
-            durationInFrames={duration}
-            >
-            {scene.layers.map((layer) => (
-                <LayerRenderer key={layer.id} layer={layer} sceneLayout={scene.layout} />
-            ))}
-
-            <LayoutDebugger sceneLayout={scene.layout} />
-
-            {scene.caption && (
-                <Captions words={scene.caption.words} />
-            )}
-            <FocusOverlay />
-            </Sequence>
-
-        );
-      })}
+      <TransitionSeries>
+        {elements}
+      </TransitionSeries>
     </FocusProvider>
   );
 };

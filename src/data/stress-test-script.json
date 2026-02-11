@@ -1,0 +1,63 @@
+[
+  {
+    "text": "Welcome to the Stress Test. We will now attempt to break the system logic.",
+    "intentType": "context_setting"
+  },
+  {
+    "text": "Initiating high-velocity sequence.",
+    "intentType": "context_setting"
+  },
+  {
+    "text": "The quantum fluctuation matrix requires a stabilized coefficient of 0.875 to maintain coherency within the sub-spatial manifold during high-stress operations.",
+    "intentType": "explanation"
+  },
+  {
+    "text": "Process A: Ingest data stream from localized sources.",
+    "intentType": "process"
+  },
+  {
+    "text": "Process B: Filter noise using a Gaussian blur algorithm at 45% opacity.",
+    "intentType": "process"
+  },
+  {
+    "text": "Process C: CRITICAL ERROR DETECTED. SYSTEM OVERLOAD IMMINENT.",
+    "intentType": "process"
+  },
+  { "text": "Stabilizing...", "intentType": "context_setting" },
+  { "text": "VICTORY! The system is restored!", "intentType": "celebration" },
+  { "text": "But a shadow falls. The core is corrupt.", "intentType": "loss" },
+  { "text": "We can fix this! Let's go!", "intentType": "excitement" },
+  { "text": "No... it's too late. All is lost.", "intentType": "loss" },
+  { "text": "Wait. A signal.", "intentType": "context_setting" },
+  { "text": "It's faint.", "intentType": "context_setting" },
+  { "text": "It's growing.", "intentType": "context_setting" },
+  { "text": "POWER RISING!", "intentType": "excitement" },
+  { "text": "MAXIMUM VELOCITY!", "intentType": "excitement" },
+  { "text": "UNSTOPPABLE MOMENTUM!", "intentType": "excitement" },
+  { "text": "BREAKING THE BARRIER!", "intentType": "excitement" },
+  { "text": "LIMITLESS ENERGY!", "intentType": "excitement" },
+  { "text": "INFINITE SCALING!", "intentType": "excitement" },
+  { "text": "OVERDRIVE ENGAGED!", "intentType": "excitement" },
+  { "text": "Cooling down.", "intentType": "context_setting" },
+  { "text": "Returning to baseline.", "intentType": "context_setting" },
+  {
+    "text": "Analysis: The data is massive. 40TB of logs, 50000 errors, 1200 warnings, spanning 500 nodes across 3 availability zones.",
+    "intentType": "data"
+  },
+  { "text": "Graph 1: Linear progression.", "intentType": "diagram" },
+  { "text": "Graph 2: Exponential growth.", "intentType": "diagram" },
+  { "text": "Graph 3: SUDDEN SPIKE!", "intentType": "diagram" },
+  { "text": "Normalizing.", "intentType": "context_setting" },
+  { "text": "Step 1.", "intentType": "process" },
+  { "text": "Step 2.", "intentType": "process" },
+  { "text": "Step 3.", "intentType": "process" },
+  { "text": "Step 4.", "intentType": "process" },
+  { "text": "Step 5.", "intentType": "process" },
+  { "text": "Check.", "intentType": "context_setting" },
+  { "text": "Verify.", "intentType": "context_setting" },
+  { "text": "Confirm.", "intentType": "context_setting" },
+  { "text": "Done.", "intentType": "context_setting" },
+  { "text": "The stress test is complete.", "intentType": "context_setting" },
+  { "text": "System status: Nominal.", "intentType": "context_setting" },
+  { "text": "Goodbye.", "intentType": "context_setting" }
+]

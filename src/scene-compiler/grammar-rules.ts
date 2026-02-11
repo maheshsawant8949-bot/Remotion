@@ -123,6 +123,13 @@ export type DecisionTrace = {
       inflationPrevented?: boolean;
       recoveryBiasApplied?: boolean;
   };
+  // Transition Trace
+  transitionFromPrevious?: {
+      type: "soft" | "firm" | "release" | "minimal";
+      reason: string[];
+      firmnessCapApplied?: boolean;
+      consecutiveFirmPrevented?: boolean;
+  };
 };
 
 export type SceneIntent = {
@@ -142,6 +149,8 @@ export type SceneIntent = {
   emphasisHistory?: ("none" | "soft" | "strong")[];
   // Motion history for inflation prevention and recovery bias (last 10 scenes)
   motionHistory?: ("calm" | "assertive" | "energetic" | "technical")[];
+  // Transition history for frequency capping (last 20 scenes)
+  transitionHistory?: ("soft" | "firm" | "release" | "minimal")[];
 };
 
 export type IntentTemplateMap = {

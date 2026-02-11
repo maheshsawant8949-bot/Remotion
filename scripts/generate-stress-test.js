@@ -1,27 +1,28 @@
 /**
- * Generate video-compiled.json from scripts.json
- * Simple manual compilation without complex imports
+ * Generate stress-test-compiled.json from stress-test-script.json
+ * Manual compilation with full behavior and transition logic
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Load scripts
-const scriptsPath = path.join(__dirname, '../evaluation/pipeline-tests/scripts.json');
+// Load stress test script
+const scriptsPath = path.join(__dirname, '../src/data/stress-test-script.json');
 const scripts = JSON.parse(fs.readFileSync(scriptsPath, 'utf-8'));
 
-console.log(`\n🎬 Generating video from ${scripts.length} scripts...\n`);
+console.log(`\n🔥 Generating STRESS TEST video from ${scripts.length} scenes...\n`);
 
 // Simple heuristics for scene decisions (mimicking the engines)
 function analyzeEmotion(text) {
-  const emotionalWords = ['crisis', 'fear', 'disaster', 'critical', 'devastating', 'urgent', 'threat'];
+  const emotionalWords = ['crisis', 'fear', 'disaster', 'critical', 'devastating', 'urgent', 'threat', 'power', 'victory', 'limitless', 'maximum', 'unstoppable'];
   const hasEmotionalWords = emotionalWords.some(word => text.toLowerCase().includes(word));
   const hasExclamation = text.includes('!');
   const hasQuestion = text.includes('?');
   
   let score = 3; // baseline
   if (hasEmotionalWords) score += 3;
-  if (hasExclamation) score += 2;
+  if (hasExclamation) score += 2; // Exclamation increases emotion
+  if (text.toUpperCase() === text && text.length > 5) score += 2; // ALL CAPS
   if (hasQuestion) score += 1;
   if (text.length > 150) score += 1;
   
@@ -32,16 +33,16 @@ function predictStrategy(text, intentType) {
   if (intentType === 'context_setting') return 'title';
   if (intentType === 'scale_reveal' || intentType === 'statistic_reveal') return 'diagram';
   if (intentType === 'awe_scale' || intentType === 'future_scale') return 'hero';
-  if (intentType === 'sequential_step') return 'process';
-  if (text.includes('%') || text.includes('terabits') || text.includes('zettabyte')) return 'data';
-  if (text.length > 120) return 'diagram';
+  if (intentType === 'sequential_step' || intentType === 'process') return 'process';
+  if (text.includes('%') || text.includes('TB') || text.includes('errors')) return 'data';
+  if (text.length > 120) return 'diagram'; // High density -> diagram usually
   return 'title';
 }
 
 function calculateDensity(text) {
   const wordCount = text.split(/\s+/).length;
-  if (wordCount > 25) return 7;
-  if (wordCount > 18) return 5;
+  if (wordCount > 25) return 8; // Very high
+  if (wordCount > 18) return 6;
   return 3;
 }
 
@@ -131,8 +132,8 @@ function determineTransition(prevMotion, currMotion, density, isPeak, prevTransi
 }
 
 function detectEmotionalPolarity(intentType, text) {
-  const upwardKeywords = ['awe', 'triumph', 'excitement', 'urgency', 'breakthrough', 'celebration'];
-  const downwardKeywords = ['somber', 'reflective', 'melancholic', 'loss', 'quiet', 'contemplative'];
+  const upwardKeywords = ['awe', 'triumph', 'excitement', 'urgency', 'breakthrough', 'celebration', 'power', 'victory', 'limitless', 'maximum', 'unstoppable'];
+  const downwardKeywords = ['somber', 'reflective', 'melancholic', 'loss', 'quiet', 'contemplative', 'scary', 'fear', 'crisis'];
   
   const combined = (intentType + ' ' + text).toLowerCase();
   
@@ -160,10 +161,7 @@ function determineMotionBehavior(emotion, polarity, density, emphasis, strategy,
   }
   
   // STEP 3: Process/diagram → technical (WITH FREQUENCY GOVERNOR)
-  // Technical for: diagram/process with (no emphasis OR density <= 5)
-  // BUT: Enforce global 25% limit via frequency governor
   if ((strategy === 'process' || strategy === 'diagram') && (emphasis === 'none' || density <= 5)) {
-    // Check frequency governor: technical should not exceed 25% of recent history
     const recentTechnical = motionHistory.slice(-10).filter(b => b === 'technical').length;
     const technicalPercent = motionHistory.length > 0 ? (recentTechnical / Math.min(motionHistory.length, 10)) * 100 : 0;
     const technicalAllowed = technicalPercent < 25;
@@ -340,7 +338,7 @@ scripts.forEach((script, index) => {
     }
   };
   
-  // Add focus effect for soft/strong emphasis (ONLY for hero and diagram layouts)
+  // Add focus effect for soft/strong emphasis
   const layoutsAllowingFocus = ['hero', 'diagram'];
   if (emphasis.level !== 'none' && layoutsAllowingFocus.includes(strategy)) {
     scene.layers.push({
@@ -360,15 +358,10 @@ scripts.forEach((script, index) => {
   const pacing = density > 6 ? 'slow' : density > 4 ? 'normal' : 'fast';
   const motionIcon = motion.behavior === 'calm' ? '😌' : motion.behavior === 'technical' ? '🔧' : motion.behavior === 'assertive' ? '💪' : '⚡';
   
-  console.log(`scene_${String(sceneId).padStart(2, '0')}:`);
-  console.log(`  weight: ${emotionLabel}`);
-  console.log(`  strategy: ${strategy}`);
-  console.log(`  reveal: ${reveal}`);
-  console.log(`  emphasis: ${emphasis.level}`);
-  console.log(`  motion: ${motionIcon} ${motion.behavior}`);
-  console.log(`  transition: ${transition.type === 'firm' ? '💪' : transition.type === 'release' ? '🍃' : '✨'} ${transition.type}`);
-  console.log(`  pacing: ${pacing}`);
-  console.log('');
+  console.log(`\${String(sceneId).padStart(2, '0')}: [${pacing.toUpperCase()}] ${motionIcon} ${motion.behavior} -> ${transition.type}`);
+  if (motion.inflationPrevented) console.log(`   ⚠️ Inflation Prevented!`);
+  if (motion.recoveryBiasApplied) console.log(`   ⚠️ Recovery Bias Applied!`);
+  if (transition.firmnessCapApplied) console.log(`   ⚠️ Firmness Cap Applied!`);
 });
 
 // Generate video JSON
@@ -382,21 +375,8 @@ const videoData = {
 };
 
 // Write output
-const outputPath = path.join(__dirname, '../src/data/video-compiled.json');
+const outputPath = path.join(__dirname, '../src/data/video-compiled.json'); // OVERWRITE main file for rendering
 fs.writeFileSync(outputPath, JSON.stringify(videoData, null, 2));
 
-console.log(`\n✅ Generated ${scenes.length} scenes!`);
-console.log(`📁 Output: ${outputPath}\n`);
-
-// Summary
-const emphasisCounts = {
-  none: emphasisHistory.filter(e => e === 'none').length,
-  soft: emphasisHistory.filter(e => e === 'soft').length,
-  strong: emphasisHistory.filter(e => e === 'strong').length
-};
-
-console.log('📊 Emphasis Distribution:');
-console.log(`   None:   ${emphasisCounts.none} (${Math.round(emphasisCounts.none / scenes.length * 100)}%)`);
-console.log(`   Soft:   ${emphasisCounts.soft} (${Math.round(emphasisCounts.soft / scenes.length * 100)}%)`);
-console.log(`   Strong: ${emphasisCounts.strong} (${Math.round(emphasisCounts.strong / scenes.length * 100)}%)`);
-console.log('');
+console.log(`\n✅ Generated ${scenes.length} stress scenes!`);
+console.log(`📁 Output: ${outputPath}`);

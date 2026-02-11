@@ -1,9 +1,10 @@
 import { Composition } from 'remotion';
-import videoData from './data/video.json';
+import videoData from './data/video-compiled.json';
 import { Scene } from './Scene';
 
 export const Video = () => {
   const { fps, width, height } = videoData.meta;
+
 
   return (
     <>
