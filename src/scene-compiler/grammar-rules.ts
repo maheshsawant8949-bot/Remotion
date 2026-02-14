@@ -27,7 +27,7 @@ export const PRIMITIVES: Record<TemplateType, TemplateSchema> = {
   hero: {
     name: 'Hero Visual',
     allowedRegions: ['heroVisual', 'caption'], 
-    allowedLayerTypes: ['three', 'group', 'text', 'focus'],
+    allowedLayerTypes: ['three', 'group', 'text', 'focus', 'image'],
     maxPerType: { focus: 1 },
     maxPrimaryVisuals: 1
   },
@@ -41,7 +41,7 @@ export const PRIMITIVES: Record<TemplateType, TemplateSchema> = {
   diagram: {
     name: 'Technical Diagram',
     allowedRegions: ['mainVisual', 'supporting', 'timeline'],
-    allowedLayerTypes: ['group', 'svg', 'callout', 'motion_lines', 'focus'], 
+    allowedLayerTypes: ['group', 'svg', 'callout', 'motion_lines', 'focus', 'image'], 
     forbiddenPairs: [
       ['three', 'video'], 
     ],
@@ -130,6 +130,12 @@ export type DecisionTrace = {
       firmnessCapApplied?: boolean;
       consecutiveFirmPrevented?: boolean;
   };
+  // Camera Shot Trace
+  cameraShot?: {
+      type: "wide" | "standard" | "focus" | "macro";
+      reason: string[];
+      governorApplied?: boolean;
+  };
 };
 
 export type SceneIntent = {
@@ -151,6 +157,8 @@ export type SceneIntent = {
   motionHistory?: ("calm" | "assertive" | "energetic" | "technical")[];
   // Transition history for frequency capping (last 20 scenes)
   transitionHistory?: ("soft" | "firm" | "release" | "minimal")[];
+  // Camera history for governor (focus/macro streak prevention) (last 10 scenes)
+  cameraHistory?: ("wide" | "standard" | "focus" | "macro")[];
 };
 
 export type IntentTemplateMap = {

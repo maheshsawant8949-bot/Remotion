@@ -10,6 +10,8 @@ import { CounterLayer } from './layers/CounterLayer';
 import { BarChartLayer } from './layers/BarChartLayer';
 import { MeterLayer } from './layers/MeterLayer';
 import { ThreeLayer } from './layers/ThreeLayer';
+import { ImageLayer } from './layers/ImageLayer';
+
 
 import { FocusLayer } from './layers/FocusLayer';
 import { useFocus } from './focus/FocusContext';
@@ -134,6 +136,8 @@ export const LayerRenderer = ({ layer, sceneLayout, isChild = false }: any) => {
         return <MeterLayer {...layerProps} />;
       case 'three':
         return <ThreeLayer {...layerProps} />;
+      case 'image':
+        return <ImageLayer {...layerProps} />;
 
       default:
         return null; // Don't crash on unknown types

@@ -1,0 +1,13 @@
+﻿[1m=== CAMERA INTELLIGENCE AUDIT ===[0m
+Total Scenes: 26
+
+[36mShot Distribution:[0m
+wide      : 12 (46.2%) Target: 15-25% [[33mHIGH[0m]
+standard  : 14 (53.8%) Target: 55-70% [[33mLOW[0m]
+focus     :  0 (0.0%) Target: 5-12% [[33mLOW[0m]
+macro     :  0 (0.0%) Target: 0-5% [[32mOK[0m]
+
+[36mGovernance Checks:[0m
+Governor Interventions: 0
+Max Consecutive Tight Shots: 0 (Limit: 2)
+[32mΓ£à Consecutive tight shot limit respected.[0m

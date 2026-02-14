@@ -8,152 +8,21 @@
     {
       "scene_id": 1,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
+      "duration_sec": 8,
       "layout": "title",
       "layers": [
         {
           "id": "content_1",
           "type": "group",
           "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Welcome to the Stress Test. We will now attempt to break the system logic.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 2,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_2",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Initiating high-velocity sequence.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 3,
-      "grammarVersion": "1.0",
-      "duration_sec": 6,
-      "layout": "diagram",
-      "layers": [
-        {
-          "id": "content_3",
-          "type": "group",
-          "position": "diagram.mainVisual",
           "enter_animation": "fade_up",
           "children": [
             {
               "type": "text",
-              "content": "The quantum fluctuation matrix requires a stabilized coefficient of 0.875 to maintain coherency within the sub-spatia...",
-              "font_size": 48
+              "content": "Every second, the modern world moves across invisible highways of light — trillions of bits of data racing beneath oc...",
+              "font_size": 72
             }
           ]
-        },
-        {
-          "id": "emphasis_3",
-          "type": "focus",
-          "target_id": "content_3",
-          "dim_opacity": 0.6,
-          "blur": 2
         }
       ],
       "trace": {
@@ -163,7 +32,7 @@
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 6,
+          "score": 7,
           "action": "split",
           "signals": {}
         },
@@ -181,41 +50,54 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "assertive",
+          "behavior": "calm",
           "reason": [
-            "soft emphasis moment"
+            "High density (7) requires calm motion"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "firm",
+          "type": "soft",
           "reason": [
-            "Energy increase: calm → assertive"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "High density requires wide shot"
+          ]
         }
       }
     },
     {
-      "scene_id": 4,
+      "scene_id": 2,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
+      "duration_sec": 6,
+      "layout": "diagram",
       "layers": [
         {
-          "id": "content_4",
+          "id": "content_2",
           "type": "group",
-          "position": "diagram.timeline",
+          "position": "diagram.mainVisual",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Process A: Ingest data stream from localized sources.",
+              "content": "Nearly 95% of all international internet traffic depends on just a few hundred undersea cables stretching across the ...",
               "font_size": 48
             }
           ]
+        },
+        {
+          "id": "emphasis_2",
+          "type": "focus",
+          "target_id": "content_2",
+          "dim_opacity": 0.6,
+          "blur": 2
         }
       ],
       "trace": {
@@ -225,7 +107,7 @@
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 3,
+          "score": 5,
           "action": "maintain",
           "signals": {}
         },
@@ -235,80 +117,17 @@
           "governorApplied": false
         },
         "emphasis": {
-          "level": "none",
-          "tier": "background",
+          "level": "soft",
+          "tier": "secondary",
           "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Recovery bias after assertive",
-            "Emotion 3 < 8"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": true
-        },
-        "transitionFromPrevious": {
-          "type": "release",
-          "reason": [
-            "Energy drop: assertive → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 5,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
-      "layers": [
-        {
-          "id": "content_5",
-          "type": "group",
-          "position": "diagram.timeline",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Process B: Filter noise using a Gaussian blur algorithm at 45% opacity.",
-              "font_size": 48
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
+            "Medium emotion (3)"
           ],
           "governorApplied": false
         },
         "motionBehavior": {
           "behavior": "technical",
           "reason": [
-            "process strategy (density=3, emphasis=none)"
+            "diagram strategy (density=5, emphasis=soft)"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -320,25 +139,334 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 3,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_3",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "These cables carry everything — financial transactions, emergency communications, military coordination, and the mess...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_3",
+          "type": "focus",
+          "target_id": "content_3",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 50% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: technical → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 4,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_4",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Yet despite supporting the digital backbone of civilization, most people have never seen one — and rarely think about...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_4",
+          "type": "focus",
+          "target_id": "content_4",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 33% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 5,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_5",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "In 2008, ships traveling through the Mediterranean accidentally severed multiple cables, slowing internet speeds acro...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_5",
+          "type": "focus",
+          "target_id": "content_5",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 4,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (4)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 25% (max 25%)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
         }
       }
     },
     {
       "scene_id": 6,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
+      "duration_sec": 6,
+      "layout": "diagram",
       "layers": [
         {
           "id": "content_6",
           "type": "group",
-          "position": "diagram.timeline",
+          "position": "diagram.mainVisual",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Process C: CRITICAL ERROR DETECTED. SYSTEM OVERLOAD IMMINENT.",
+              "content": "Banks struggled to process payments, flights were delayed, and entire businesses temporarily lost their connection to...",
               "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_6",
+          "type": "focus",
+          "target_id": "content_6",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "technical",
+          "reason": [
+            "diagram strategy (density=5, emphasis=soft)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → technical"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 7,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_7",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "But that disruption was small compared to what experts fear today.",
+              "font_size": 72
             }
           ]
         }
@@ -368,41 +496,54 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "technical",
+          "behavior": "assertive",
           "reason": [
-            "process strategy (density=3, emphasis=soft)"
+            "soft emphasis moment"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "minimal",
+          "type": "soft",
           "reason": [
-            "Technical flow continuity"
+            "Default continuity: technical → assertive"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
         }
       }
     },
     {
-      "scene_id": 7,
+      "scene_id": 8,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
+      "duration_sec": 6,
+      "layout": "hero",
       "layers": [
         {
-          "id": "content_7",
+          "id": "content_8",
           "type": "group",
-          "position": "title.main",
+          "position": "heroVisual",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Stabilizing...",
-              "font_size": 72
+              "content": "Modern mega-cables can transmit over 250 terabits per second — enough capacity to stream millions of ultra-high-defin...",
+              "font_size": 56
             }
           ]
+        },
+        {
+          "id": "emphasis_8",
+          "type": "focus",
+          "target_id": "content_8",
+          "dim_opacity": 0.6,
+          "blur": 2
         }
       ],
       "trace": {
@@ -412,7 +553,7 @@
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 3,
+          "score": 5,
           "action": "maintain",
           "signals": {}
         },
@@ -422,91 +563,35 @@
           "governorApplied": false
         },
         "emphasis": {
-          "level": "none",
-          "tier": "background",
+          "level": "soft",
+          "tier": "secondary",
           "reason": [
-            "Low signals"
+            "Medium emotion (3)"
           ],
           "governorApplied": false
         },
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
           ],
           "inflationPrevented": false,
-          "recoveryBiasApplied": false
+          "recoveryBiasApplied": true
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "release",
           "reason": [
-            "Default continuity: technical → calm"
+            "Energy drop: assertive → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 8,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_8",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "VICTORY! The system is restored!",
-              "font_size": 72
-            }
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
           ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 8,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "strong",
-          "tier": "primary",
-          "reason": [
-            "High emotion (8)"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "energetic",
-          "reason": [
-            "Peak moment (strong emphasis, emotion 8)",
-            "Upward polarity allows energetic"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → energetic"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
         }
       }
     },
@@ -524,7 +609,7 @@
           "children": [
             {
               "type": "text",
-              "content": "But a shadow falls. The core is corrupt.",
+              "content": "Which means damaging even a single major cable could ripple across continents in minutes.",
               "font_size": 72
             }
           ]
@@ -557,19 +642,24 @@
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Recovery bias after energetic",
-            "Emotion 3 < 8"
+            "Default state (no emphasis, normal weight)"
           ],
           "inflationPrevented": false,
-          "recoveryBiasApplied": true
+          "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "release",
+          "type": "soft",
           "reason": [
-            "Energy drop: energetic → calm"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
         }
       }
     },
@@ -587,7 +677,7 @@
           "children": [
             {
               "type": "text",
-              "content": "We can fix this! Let's go!",
+              "content": "So how are these fragile lifelines actually built?",
               "font_size": 72
             }
           ]
@@ -595,7 +685,7 @@
       ],
       "trace": {
         "emotionalAnalysis": {
-          "score": 5,
+          "score": 4,
           "level": "medium",
           "triggers": []
         },
@@ -613,7 +703,7 @@
           "level": "soft",
           "tier": "secondary",
           "reason": [
-            "Medium emotion (5)"
+            "Medium emotion (4)"
           ],
           "governorApplied": false
         },
@@ -632,6 +722,12 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
         }
       }
     },
@@ -639,18 +735,18 @@
       "scene_id": 11,
       "grammarVersion": "1.0",
       "duration_sec": 5,
-      "layout": "title",
+      "layout": "process",
       "layers": [
         {
           "id": "content_11",
           "type": "group",
-          "position": "title.main",
+          "position": "diagram.timeline",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "No... it's too late. All is lost.",
-              "font_size": 72
+              "content": "First, specialized ships map the ocean floor to avoid underwater landslides, volcanic zones, and sharp geological for...",
+              "font_size": 48
             }
           ]
         }
@@ -695,25 +791,31 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'process' defaults to wide"
+          ]
         }
       }
     },
     {
       "scene_id": 12,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
+      "duration_sec": 6,
+      "layout": "process",
       "layers": [
         {
           "id": "content_12",
           "type": "group",
-          "position": "title.main",
+          "position": "diagram.timeline",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Wait. A signal.",
-              "font_size": 72
+              "content": "Then, massive reels slowly unspool thousands of kilometers of fiber optic cable while robotic plows bury them beneath...",
+              "font_size": 48
             }
           ]
         }
@@ -725,7 +827,7 @@
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 3,
+          "score": 5,
           "action": "maintain",
           "signals": {}
         },
@@ -735,17 +837,17 @@
           "governorApplied": false
         },
         "emphasis": {
-          "level": "none",
-          "tier": "background",
+          "level": "soft",
+          "tier": "secondary",
           "reason": [
-            "Low signals"
+            "Medium emotion (3)"
           ],
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "process strategy (density=5, emphasis=soft)"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -753,29 +855,35 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → calm"
+            "Default continuity: calm → technical"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'process' defaults to wide"
+          ]
         }
       }
     },
     {
       "scene_id": 13,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
+      "duration_sec": 6,
+      "layout": "process",
       "layers": [
         {
           "id": "content_13",
           "type": "group",
-          "position": "title.main",
+          "position": "diagram.timeline",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "It's faint.",
-              "font_size": 72
+              "content": "Finally, landing stations connect these cables to terrestrial networks — completing a system that can take years and ...",
+              "font_size": 48
             }
           ]
         }
@@ -787,7 +895,7 @@
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 3,
+          "score": 5,
           "action": "maintain",
           "signals": {}
         },
@@ -797,28 +905,34 @@
           "governorApplied": false
         },
         "emphasis": {
-          "level": "none",
-          "tier": "background",
+          "level": "soft",
+          "tier": "secondary",
           "reason": [
-            "Low signals"
+            "Medium emotion (3)"
           ],
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "process strategy (density=5, emphasis=soft)"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: calm → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'process' defaults to wide"
+          ]
         }
       }
     },
@@ -836,7 +950,7 @@
           "children": [
             {
               "type": "text",
-              "content": "It's growing.",
+              "content": "Despite this engineering, cables remain surprisingly vulnerable.",
               "font_size": 72
             }
           ]
@@ -877,10 +991,16 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → calm"
+            "Default continuity: technical → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
         }
       }
     },
@@ -894,451 +1014,11 @@
           "id": "content_15",
           "type": "group",
           "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "POWER RISING!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 10,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "strong",
-          "tier": "primary",
-          "reason": [
-            "High emotion (10)"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "energetic",
-          "reason": [
-            "Peak moment (strong emphasis, emotion 10)",
-            "Upward polarity allows energetic"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → energetic"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 16,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_16",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "MAXIMUM VELOCITY!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 10,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Governor downgraded strong to soft"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "soft emphasis but inflation prevented",
-            "Assertive/energetic already at 30%"
-          ],
-          "inflationPrevented": true,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "release",
-          "reason": [
-            "Energy drop: energetic → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 17,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_17",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "UNSTOPPABLE MOMENTUM!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 10,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Governor downgraded strong to soft"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "soft emphasis but inflation prevented",
-            "Assertive/energetic already at 30%"
-          ],
-          "inflationPrevented": true,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 18,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_18",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "BREAKING THE BARRIER!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 7,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Governor downgraded strong to soft"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "soft emphasis but inflation prevented",
-            "Assertive/energetic already at 30%"
-          ],
-          "inflationPrevented": true,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 19,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_19",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "LIMITLESS ENERGY!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 10,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "strong",
-          "tier": "primary",
-          "reason": [
-            "High emotion (10)"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "energetic",
-          "reason": [
-            "Peak moment (strong emphasis, emotion 10)",
-            "Upward polarity allows energetic"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → energetic"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 20,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_20",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "INFINITE SCALING!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 7,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Governor downgraded strong to soft"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Recovery bias after energetic",
-            "Emotion 7 < 8"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": true
-        },
-        "transitionFromPrevious": {
-          "type": "release",
-          "reason": [
-            "Energy drop: energetic → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 21,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_21",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "scale_fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "OVERDRIVE ENGAGED!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 7,
-          "level": "high",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "spotlight",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Governor downgraded strong to soft"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "assertive",
-          "reason": [
-            "soft emphasis moment"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "firm",
-          "reason": [
-            "Energy increase: calm → assertive"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 22,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_22",
-          "type": "group",
-          "position": "title.main",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Cooling down.",
+              "content": "Fishing anchors, earthquakes, and even curious sharks have been responsible for damaging critical lines.",
               "font_size": 72
             }
           ]
@@ -1346,319 +1026,7 @@
       ],
       "trace": {
         "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Recovery bias after assertive",
-            "Emotion 3 < 8"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": true
-        },
-        "transitionFromPrevious": {
-          "type": "release",
-          "reason": [
-            "Energy drop: assertive → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 23,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_23",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Returning to baseline.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 24,
-      "grammarVersion": "1.0",
-      "duration_sec": 6,
-      "layout": "data",
-      "layers": [
-        {
-          "id": "content_24",
-          "type": "group",
-          "position": "data.counter",
-          "enter_animation": "fade_up",
-          "children": [
-            {
-              "type": "text",
-              "content": "Analysis: The data is massive. 40TB of logs, 50000 errors, 1200 warnings, spanning 500 nodes across 3 availability zo...",
-              "font_size": 48
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
           "score": 6,
-          "action": "split",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "stagger",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "soft",
-          "tier": "secondary",
-          "reason": [
-            "Medium emotion (3)"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "soft emphasis but inflation prevented",
-            "Assertive/energetic already at 30%"
-          ],
-          "inflationPrevented": true,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 25,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_25",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Graph 1: Linear progression.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 26,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_26",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Graph 2: Exponential growth.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 27,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_27",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Graph 3: SUDDEN SPIKE!",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 5,
           "level": "medium",
           "triggers": []
         },
@@ -1676,7 +1044,7 @@
           "level": "soft",
           "tier": "secondary",
           "reason": [
-            "Medium emotion (5)"
+            "Medium emotion (6)"
           ],
           "governorApplied": false
         },
@@ -1695,25 +1063,31 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
         }
       }
     },
     {
-      "scene_id": 28,
+      "scene_id": 16,
       "grammarVersion": "1.0",
       "duration_sec": 5,
-      "layout": "title",
+      "layout": "diagram",
       "layers": [
         {
-          "id": "content_28",
+          "id": "content_16",
           "type": "group",
-          "position": "title.main",
+          "position": "diagram.mainVisual",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Normalizing.",
-              "font_size": 72
+              "content": "In fact, experts estimate that over 100 cable faults occur globally every single year.",
+              "font_size": 48
             }
           ]
         }
@@ -1758,25 +1132,100 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
         }
       }
     },
     {
-      "scene_id": 29,
+      "scene_id": 17,
       "grammarVersion": "1.0",
       "duration_sec": 5,
-      "layout": "process",
+      "layout": "title",
       "layers": [
         {
-          "id": "content_29",
+          "id": "content_17",
           "type": "group",
-          "position": "diagram.timeline",
+          "position": "title.main",
           "enter_animation": "fade",
           "children": [
             {
               "type": "text",
-              "content": "Step 1.",
-              "font_size": 48
+              "content": "Most are repaired quickly — but a coordinated attack or major natural disaster could create outages lasting weeks.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 6,
+          "level": "medium",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (6)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "soft emphasis but inflation prevented",
+            "Assertive/energetic already at 30%"
+          ],
+          "inflationPrevented": true,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 18,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_18",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Imagine financial markets freezing, cloud services going dark, and millions suddenly cut off from communication.",
+              "font_size": 72
             }
           ]
         }
@@ -1806,9 +1255,500 @@
           "governorApplied": false
         },
         "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 19,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_19",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "This is why governments increasingly treat cable infrastructure as a matter of national security.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 20,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_20",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Some routes are now monitored by naval patrols, while new cables are designed with additional shielding.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 21,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_21",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Others are exploring satellite networks as backup systems — though satellites still lack the raw capacity of fiber.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 22,
+      "grammarVersion": "1.0",
+      "duration_sec": 5,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_22",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "And demand is only accelerating.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 3,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "none",
+          "tier": "background",
+          "reason": [
+            "Low signals"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Default state (no emphasis, normal weight)"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "soft",
+          "reason": [
+            "Default continuity: calm → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 23,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "hero",
+      "layers": [
+        {
+          "id": "content_23",
+          "type": "group",
+          "position": "heroVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "By 2030, global internet traffic is expected to exceed one zettabyte per year — that’s a trillion gigabytes moving ac...",
+              "font_size": 56
+            }
+          ]
+        },
+        {
+          "id": "emphasis_23",
+          "type": "focus",
+          "target_id": "content_23",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "assertive",
+          "reason": [
+            "soft emphasis moment"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": false
+        },
+        "transitionFromPrevious": {
+          "type": "firm",
+          "reason": [
+            "Energy increase: calm → assertive"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 24,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "title",
+      "layers": [
+        {
+          "id": "content_24",
+          "type": "group",
+          "position": "title.main",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "To keep up, companies are racing to deploy next-generation cables capable of carrying far more data with lower latency.",
+              "font_size": 72
+            }
+          ]
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
+          "behavior": "calm",
+          "reason": [
+            "Recovery bias after assertive",
+            "Emotion 3 < 8"
+          ],
+          "inflationPrevented": false,
+          "recoveryBiasApplied": true
+        },
+        "transitionFromPrevious": {
+          "type": "release",
+          "reason": [
+            "Energy drop: assertive → calm"
+          ],
+          "firmnessCapApplied": false,
+          "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "standard",
+          "reason": [
+            "Default standard framing"
+          ]
+        }
+      }
+    },
+    {
+      "scene_id": 25,
+      "grammarVersion": "1.0",
+      "duration_sec": 6,
+      "layout": "diagram",
+      "layers": [
+        {
+          "id": "content_25",
+          "type": "group",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade",
+          "children": [
+            {
+              "type": "text",
+              "content": "Yet the paradox remains — humanity’s most advanced digital systems still depend on physical threads resting quietly o...",
+              "font_size": 48
+            }
+          ]
+        },
+        {
+          "id": "emphasis_25",
+          "type": "focus",
+          "target_id": "content_25",
+          "dim_opacity": 0.6,
+          "blur": 2
+        }
+      ],
+      "trace": {
+        "emotionalAnalysis": {
+          "score": 3,
+          "level": "low",
+          "triggers": []
+        },
+        "densityAnalysis": {
+          "score": 5,
+          "action": "maintain",
+          "signals": {}
+        },
+        "revealStrategy": {
+          "chosen": "instant",
+          "reason": [],
+          "governorApplied": false
+        },
+        "emphasis": {
+          "level": "soft",
+          "tier": "secondary",
+          "reason": [
+            "Medium emotion (3)"
+          ],
+          "governorApplied": false
+        },
+        "motionBehavior": {
           "behavior": "technical",
           "reason": [
-            "process strategy (density=3, emphasis=none)"
+            "diagram strategy (density=5, emphasis=soft)"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -1820,182 +1760,70 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "Layout 'diagram' defaults to wide"
+          ]
         }
       }
     },
     {
-      "scene_id": 30,
+      "scene_id": 26,
       "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
+      "duration_sec": 8,
+      "layout": "diagram",
       "layers": [
         {
-          "id": "content_30",
+          "id": "content_26",
           "type": "group",
-          "position": "diagram.timeline",
-          "enter_animation": "fade",
+          "position": "diagram.mainVisual",
+          "enter_animation": "fade_up",
           "children": [
             {
               "type": "text",
-              "content": "Step 2.",
+              "content": "So the next time a message reaches someone across the world in milliseconds, remember — it likely traveled through da...",
               "font_size": 48
             }
           ]
+        },
+        {
+          "id": "emphasis_26",
+          "type": "focus",
+          "target_id": "content_26",
+          "dim_opacity": 0.6,
+          "blur": 2
         }
       ],
       "trace": {
         "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
+          "score": 4,
+          "level": "medium",
           "triggers": []
         },
         "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
+          "score": 7,
+          "action": "split",
           "signals": {}
         },
         "revealStrategy": {
-          "chosen": "instant",
+          "chosen": "stagger",
           "reason": [],
           "governorApplied": false
         },
         "emphasis": {
-          "level": "none",
-          "tier": "background",
+          "level": "soft",
+          "tier": "secondary",
           "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "technical",
-          "reason": [
-            "process strategy (density=3, emphasis=none)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "minimal",
-          "reason": [
-            "Technical flow continuity"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 31,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
-      "layers": [
-        {
-          "id": "content_31",
-          "type": "group",
-          "position": "diagram.timeline",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Step 3.",
-              "font_size": 48
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "technical",
-          "reason": [
-            "process strategy (density=3, emphasis=none)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "minimal",
-          "reason": [
-            "Technical flow continuity"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 32,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
-      "layers": [
-        {
-          "id": "content_32",
-          "type": "group",
-          "position": "diagram.timeline",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Step 4.",
-              "font_size": 48
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
+            "Medium emotion (4)"
           ],
           "governorApplied": false
         },
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "process strategy but technical frequency limit reached",
-            "Technical already at 30% (max 25%)"
+            "High density (7) requires calm motion"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -2007,503 +1835,12 @@
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 33,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "process",
-      "layers": [
-        {
-          "id": "content_33",
-          "type": "group",
-          "position": "diagram.timeline",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Step 5.",
-              "font_size": 48
-            }
+        },
+        "cameraShot": {
+          "type": "wide",
+          "reason": [
+            "High density requires wide shot"
           ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "process strategy but technical frequency limit reached",
-            "Technical already at 30% (max 25%)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 34,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_34",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Check.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 35,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_35",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Verify.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 36,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_36",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Confirm.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 37,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_37",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Done.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 38,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_38",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "The stress test is complete.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 39,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_39",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "System status: Nominal.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
-        }
-      }
-    },
-    {
-      "scene_id": 40,
-      "grammarVersion": "1.0",
-      "duration_sec": 5,
-      "layout": "title",
-      "layers": [
-        {
-          "id": "content_40",
-          "type": "group",
-          "position": "title.main",
-          "enter_animation": "fade",
-          "children": [
-            {
-              "type": "text",
-              "content": "Goodbye.",
-              "font_size": 72
-            }
-          ]
-        }
-      ],
-      "trace": {
-        "emotionalAnalysis": {
-          "score": 3,
-          "level": "low",
-          "triggers": []
-        },
-        "densityAnalysis": {
-          "score": 3,
-          "action": "maintain",
-          "signals": {}
-        },
-        "revealStrategy": {
-          "chosen": "instant",
-          "reason": [],
-          "governorApplied": false
-        },
-        "emphasis": {
-          "level": "none",
-          "tier": "background",
-          "reason": [
-            "Low signals"
-          ],
-          "governorApplied": false
-        },
-        "motionBehavior": {
-          "behavior": "calm",
-          "reason": [
-            "Default state (no emphasis, normal weight)"
-          ],
-          "inflationPrevented": false,
-          "recoveryBiasApplied": false
-        },
-        "transitionFromPrevious": {
-          "type": "soft",
-          "reason": [
-            "Default continuity: calm → calm"
-          ],
-          "firmnessCapApplied": false,
-          "consecutiveFirmPrevented": false
         }
       }
     }

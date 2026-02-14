@@ -6,6 +6,7 @@ import { RevealResolver } from '../reveal-engine/reveal-resolver';
 import { EmphasisResolver } from '../emphasis-engine/emphasis-resolver';
 import { BehaviorResolver } from '../motion-behavior/behavior-resolver';
 import { TransitionResolver } from '../transition-intelligence/transition-resolver';
+import { FramingEngine } from '../camera-intelligence/framing-engine';
 import { Heuristics } from '../visual-reasoner/heuristics';
 
 export interface CompiledScene {
@@ -30,6 +31,7 @@ export const SceneFactory = {
   create: (intent: SceneIntent): CompiledScene => {
     const mapping = INTENT_MAP[intent.type];
     const script = intent.trace?.inputScript || "";
+
 
     // 0. Emotional Analysis (Influence Logic)
     let emotionalWeight = intent.emotionalWeight || 0;
@@ -272,6 +274,19 @@ export const SceneFactory = {
         previousTransition: intent.transitionHistory?.[intent.transitionHistory.length - 1],
         recentTransitions: intent.transitionHistory || []
     });
+
+    // 10. Camera Intelligence Resolution (AFTER transitions, BEFORE finalization)
+    // Determines framing intent (shot type)
+    const cameraDecision = FramingEngine.determineShot({
+        emotionalWeight,
+        emphasis: emphasisDecision.level,
+        density: densityScore,
+        layout: selectedTemplate,
+        rhythmPeak: emphasisDecision.level === 'strong' && emotionalWeight >= 7,
+        motionBehavior: motionDecision.behavior,
+        recentShots: intent.cameraHistory || []
+    });
+
     
     // Augment trace with selection logic
     const finalTrace = {
@@ -289,6 +304,8 @@ export const SceneFactory = {
         emphasis: emphasisDecision,
         motionBehavior: motionDecision,
         transitionFromPrevious: transitionDecision,
+        cameraShot: cameraDecision,
+
         pacing: {
             ...intent.trace?.pacing,
             // We might not have full pacing info here if DurationResolver runs elsewhere, 

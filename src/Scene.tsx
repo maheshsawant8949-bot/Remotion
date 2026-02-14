@@ -1,11 +1,12 @@
 import React from 'react';
-import { Sequence } from 'remotion';
 import videoData from './data/video-compiled.json';
 import { LayerRenderer } from './LayerRenderer';
 import { Captions } from './captions/Captions';
 import { FocusProvider } from './focus/FocusContext';
 import { FocusOverlay } from './focus/FocusOverlay';
 import { LayoutDebugger } from './layout/LayoutDebugger';
+import { CameraWrapper } from './camera-intelligence/CameraWrapper';
+
 
 
 
@@ -51,9 +52,11 @@ export const Scene = () => {
               validateCompiledScene(scene);
               return (
                   <>
-                      {scene.layers.map((layer: any) => (
-                          <LayerRenderer key={layer.id} layer={layer} sceneLayout={scene.layout} />
-                      ))}
+                      <CameraWrapper shot={scene.trace?.cameraShot}>
+                          {scene.layers.map((layer: any) => (
+                              <LayerRenderer key={layer.id} layer={layer} sceneLayout={scene.layout} />
+                          ))}
+                      </CameraWrapper>
                       <LayoutDebugger sceneLayout={scene.layout} />
                       {scene.caption && <Captions words={scene.caption.words} />}
                       <FocusOverlay />

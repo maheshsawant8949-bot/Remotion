@@ -10,6 +10,47 @@ const path = require('path');
 const scriptsPath = path.join(__dirname, '../evaluation/pipeline-tests/scripts.json');
 const scripts = JSON.parse(fs.readFileSync(scriptsPath, 'utf-8'));
 
+// Camera Intelligence Logic (Manual Implementation to avoid TS import issues)
+function determineCameraShot(emotion, emphasis, density, layout, isPeak, cameraHistory) {
+    const reasons = [];
+    let type = 'standard'; // Default
+
+    // 1. Density Override
+    if (density >= 7) {
+        return { type: 'wide', reason: ['High density requires wide shot'] };
+    }
+
+    // 2. Layout Rules
+    if (layout === 'diagram' || layout === 'process') {
+         return { type: 'wide', reason: [`Layout '${layout}' defaults to wide`] };
+    }
+
+    // 3. Macro Gate
+    if (emotion >= 8 && emphasis === 'strong' && isPeak) {
+         // Governor check for Macro handled same as focus below
+         type = 'macro';
+         reasons.push('High emotion + Peak emphasis enables macro');
+    } 
+    // 4. Emphasis Rule
+    else if (emphasis === 'strong') {
+         type = 'focus';
+         reasons.push('Strong emphasis requests focus');
+    } else {
+         reasons.push('Default standard framing');
+    }
+
+    // 5. Governor (Streak Prevention)
+    if (type === 'focus' || type === 'macro') {
+        const recentTight = cameraHistory.slice(-2).filter(t => t === 'focus' || t === 'macro').length;
+        if (recentTight >= 2) {
+             return { type: 'standard', reason: [...reasons, 'Governor: Max consecutive tight shots reached'], governorApplied: true };
+        }
+    }
+
+    return { type, reason: reasons };
+}
+
+
 console.log(`\n🎬 Generating video from ${scripts.length} scripts...\n`);
 
 // Simple heuristics for scene decisions (mimicking the engines)
@@ -246,6 +287,8 @@ const scenes = [];
 const emphasisHistory = [];
 const motionHistory = [];
 const transitionHistory = [];
+const cameraHistory = [];
+
 
 scripts.forEach((script, index) => {
   const sceneId = index + 1;
@@ -273,11 +316,23 @@ scripts.forEach((script, index) => {
     previousTransition,
     transitionHistory
   );
+
+  // Determine Camera Shot (Manual)
+  const camera = determineCameraShot(
+      emotion,
+      emphasis.level,
+      density,
+      strategy,
+      emphasis.level === 'strong' && emotion >= 7,
+      cameraHistory
+  );
   
   // Update history
   emphasisHistory.push(emphasis.level);
   motionHistory.push(motion.behavior);
   transitionHistory.push(transition.type);
+  cameraHistory.push(camera.type);
+
   
   // Duration based on density
   const duration = density > 6 ? 8 : density > 4 ? 6 : 5;
@@ -336,7 +391,8 @@ scripts.forEach((script, index) => {
         reason: transition.reason,
         firmnessCapApplied: transition.firmnessCapApplied || false,
         consecutiveFirmPrevented: transition.consecutiveFirmPrevented || false
-      }
+      },
+      cameraShot: camera
     }
   };
   
