@@ -6,7 +6,8 @@ import { FocusProvider } from './focus/FocusContext';
 import { FocusOverlay } from './focus/FocusOverlay';
 import { LayoutDebugger } from './layout/LayoutDebugger';
 import { CameraWrapper } from './camera-intelligence/CameraWrapper';
-
+import { getFontSize } from './visual-language/typography-scale';
+import { getSpacing } from './visual-language/spacing-system';
 
 
 
@@ -64,7 +65,7 @@ export const Scene = () => {
               );
           } catch (e: any) {
               return (
-                    <AbsoluteFill style={{backgroundColor: 'red', color: 'white', alignItems: 'center', justifyContent: 'center', fontSize: 24, fontWeight: 'bold', padding: 40}}>
+                    <AbsoluteFill style={{backgroundColor: 'red', color: 'white', alignItems: 'center', justifyContent: 'center', fontSize: getFontSize('caption'), fontWeight: 'bold', padding: getSpacing('xl')}}>
                       <div style={{marginBottom: 20}}>PIPELINE ERROR: Scene {scene.scene_id} Invalid</div>
                       <div>{e.message}</div>
                   </AbsoluteFill>

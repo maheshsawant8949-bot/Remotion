@@ -8,6 +8,8 @@ import { BehaviorResolver } from '../motion-behavior/behavior-resolver';
 import { TransitionResolver } from '../transition-intelligence/transition-resolver';
 import { FramingEngine } from '../camera-intelligence/framing-engine';
 import { Heuristics } from '../visual-reasoner/heuristics';
+import { getFontSize } from '../visual-language/typography-scale';
+import { CurveResolver } from '../motion-curves/curve-resolver';
 
 export interface CompiledScene {
   layout: TemplateType;
@@ -264,6 +266,21 @@ export const SceneFactory = {
         recentHistory: intent.motionHistory || [] // Use provided history or empty
     });
 
+    // 8.5. Motion Curve Resolution (AFTER motion behavior, BEFORE transitions)
+    // Determines motion curve intent (semantic, not easing)
+    const motionCurveDecision = CurveResolver.resolve({
+        motionBehavior: motionDecision.behavior,
+        emotionalWeight,
+        density: densityScore,
+        rhythmPeak: emphasisDecision.level === 'strong' && emotionalWeight >= 7,
+        transitionEnergy: intent.transitionHistory?.[intent.transitionHistory.length - 1],
+        totalScenes: intent.curveState?.totalScenes || 1,
+        swiftCount: intent.curveState?.swiftCount || 0,
+        deliberateCount: intent.curveState?.deliberateCount || 0,
+        previousCurve: intent.curveState?.previousCurve,
+        curveChanges: intent.curveState?.curveChanges || 0,
+    });
+
     // 9. Transition Intelligence Resolution (AFTER motion, BEFORE output)
     // Depends on motion decision and previous motion
     const transitionDecision = TransitionResolver.resolve({
@@ -303,6 +320,7 @@ export const SceneFactory = {
         revealStrategy: revealDecision,
         emphasis: emphasisDecision,
         motionBehavior: motionDecision,
+        motionCurve: motionCurveDecision,
         transitionFromPrevious: transitionDecision,
         cameraShot: cameraDecision,
 
@@ -394,7 +412,7 @@ export const SceneFactory = {
               if (payload.primaryText) {
                   SceneFactory.addLayer(scene, { 
                       id: 'title_text', type: 'text', position: 'main', 
-                      content: payload.primaryText, fontSize: 80 
+                      content: payload.primaryText, fontSize: getFontSize('display') 
                   });
               }
               if (payload.assetUrl) {
@@ -415,7 +433,7 @@ export const SceneFactory = {
               if (payload.primaryText) {
                   SceneFactory.addLayer(scene, {
                       id: 'hero_caption', type: 'text', position: 'hero.caption',
-                      content: payload.primaryText, fontSize: 40
+                      content: payload.primaryText, fontSize: getFontSize('body')
                   });
               }
               break;

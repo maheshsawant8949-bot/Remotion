@@ -1,5 +1,6 @@
 import { Word } from './Word';
 import { Z_INDEX } from '../style/zIndex';
+import { applyTypography } from '../visual-language/helpers';
 
 export const Captions = ({ words }: any) => {
   if (!words || !words.length) return null;
@@ -26,9 +27,8 @@ export const Captions = ({ words }: any) => {
         style={{
           maxWidth: '80%',
           textAlign: 'center',
-          fontSize: 48,
+          ...applyTypography('title'),
           fontWeight: 600,
-          lineHeight: 1.4
         }}
       >
         {words.map((word: any, i: number) => (

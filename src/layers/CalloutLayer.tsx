@@ -1,5 +1,7 @@
 
 import { theme } from '../style/theme';
+import { getBorderRadius } from '../visual-language/shape-language';
+import { applyTypography } from '../visual-language/helpers';
 
 import { useDrawLine } from '../animation/draw';
 
@@ -39,11 +41,11 @@ export const CalloutLayer = ({
           top: to.y,
           transform: 'translate(-50%, -50%)',
           background: theme.primary,
-          color: '#020617',
+          color: '#020617', // Dark slate for high contrast on bright primary
           padding: '12px 18px',
-          borderRadius: 999,
+          borderRadius: getBorderRadius('full'),
           fontWeight: 600,
-          fontSize: 28,
+          ...applyTypography('caption'),
           opacity: progress
         }}
       >

@@ -1,7 +1,7 @@
 import { AbsoluteFill } from 'remotion';
 import { LAYOUTS, resolvePosition } from './resolver';
 import { DEBUG_LAYOUT } from './constants';
-import { theme } from '../style/theme';
+import { getFontSize } from '../visual-language/typography-scale';
 
 export const LayoutDebugger = ({ sceneLayout }: { sceneLayout: string }) => {
   if (!DEBUG_LAYOUT) return null;
@@ -34,9 +34,9 @@ export const LayoutDebugger = ({ sceneLayout }: { sceneLayout: string }) => {
             <div
               style={{
                 backgroundColor: color,
-                color: '#fff',
+                color: '#FFFFFF', // White for debug labels (high contrast)
                 padding: '2px 6px',
-                fontSize: 12,
+                fontSize: getFontSize('micro'),
                 fontFamily: 'monospace',
                 fontWeight: 'bold',
               }}

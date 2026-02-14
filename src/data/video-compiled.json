@@ -200,18 +200,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "diagram strategy but technical frequency limit reached",
-            "Technical already at 50% (max 25%)"
+            "Motion continuity bias (volatility 100% > 30%)",
+            "Maintaining technical for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: technical → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -276,18 +276,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "diagram strategy but technical frequency limit reached",
-            "Technical already at 33% (max 25%)"
+            "Motion continuity bias (volatility 50% > 30%)",
+            "Maintaining technical for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: calm → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -352,18 +352,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "diagram strategy but technical frequency limit reached",
-            "Technical already at 25% (max 25%)"
+            "Motion continuity bias (volatility 33% > 30%)",
+            "Maintaining technical for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: calm → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -428,9 +428,10 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "technical",
+          "behavior": "calm",
           "reason": [
-            "diagram strategy (density=5, emphasis=soft)"
+            "diagram strategy but technical frequency limit reached",
+            "Technical already at 80% (max 25%)"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -438,7 +439,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → technical"
+            "Default continuity: technical → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -496,9 +497,10 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "assertive",
+          "behavior": "calm",
           "reason": [
-            "soft emphasis moment"
+            "Motion continuity bias (volatility 40% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -506,7 +508,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: technical → assertive"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -573,16 +575,16 @@
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Recovery bias after assertive",
-            "Emotion 3 < 8"
+            "Motion continuity bias (volatility 33% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
-          "recoveryBiasApplied": true
+          "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "release",
+          "type": "soft",
           "reason": [
-            "Energy drop: assertive → calm"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -845,9 +847,10 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "technical",
+          "behavior": "calm",
           "reason": [
-            "process strategy (density=5, emphasis=soft)"
+            "Motion continuity bias (volatility 40% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -855,7 +858,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → technical"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -913,17 +916,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "technical",
+          "behavior": "calm",
           "reason": [
-            "process strategy (density=5, emphasis=soft)"
+            "Motion continuity bias (volatility 36% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "minimal",
+          "type": "soft",
           "reason": [
-            "Technical flow continuity"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -983,7 +987,8 @@
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "Motion continuity bias (volatility 33% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -991,7 +996,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: technical → calm"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1049,17 +1054,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "assertive",
+          "behavior": "calm",
           "reason": [
-            "soft emphasis moment"
+            "Motion continuity bias (volatility 31% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "firm",
+          "type": "soft",
           "reason": [
-            "Energy increase: calm → assertive"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1117,18 +1123,17 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "Recovery bias after assertive",
-            "Emotion 3 < 8"
+            "diagram strategy (density=3, emphasis=none)"
           ],
           "inflationPrevented": false,
-          "recoveryBiasApplied": true
+          "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "release",
+          "type": "soft",
           "reason": [
-            "Energy drop: assertive → calm"
+            "Default continuity: calm → technical"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1186,18 +1191,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "soft emphasis but inflation prevented",
-            "Assertive/energetic already at 30%"
+            "Motion continuity bias (volatility 33% > 30%)",
+            "Maintaining technical for stability"
           ],
-          "inflationPrevented": true,
+          "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: calm → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1255,17 +1260,18 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "calm",
+          "behavior": "technical",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "Motion continuity bias (volatility 31% > 30%)",
+            "Maintaining technical for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
         },
         "transitionFromPrevious": {
-          "type": "soft",
+          "type": "minimal",
           "reason": [
-            "Default continuity: calm → calm"
+            "Technical flow continuity"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1333,7 +1339,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → calm"
+            "Default continuity: technical → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1393,7 +1399,8 @@
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "Motion continuity bias (volatility 33% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -1461,7 +1468,8 @@
         "motionBehavior": {
           "behavior": "calm",
           "reason": [
-            "Default state (no emphasis, normal weight)"
+            "Motion continuity bias (volatility 32% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -1746,9 +1754,10 @@
           "governorApplied": false
         },
         "motionBehavior": {
-          "behavior": "technical",
+          "behavior": "calm",
           "reason": [
-            "diagram strategy (density=5, emphasis=soft)"
+            "Motion continuity bias (volatility 35% > 30%)",
+            "Maintaining calm for stability"
           ],
           "inflationPrevented": false,
           "recoveryBiasApplied": false
@@ -1756,7 +1765,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: calm → technical"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false
@@ -1831,7 +1840,7 @@
         "transitionFromPrevious": {
           "type": "soft",
           "reason": [
-            "Default continuity: technical → calm"
+            "Default continuity: calm → calm"
           ],
           "firmnessCapApplied": false,
           "consecutiveFirmPrevented": false

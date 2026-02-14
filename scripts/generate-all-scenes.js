@@ -194,6 +194,25 @@ function determineMotionBehavior(emotion, polarity, density, emphasis, strategy,
     }
   }
   
+  // STEP 1.5: MOTION CONTINUITY BIAS (Volatility Reduction)
+  // Calculate current volatility
+  if (motionHistory.length > 1) {
+    let changes = 0;
+    for (let i = 1; i < motionHistory.length; i++) {
+      if (motionHistory[i] !== motionHistory[i-1]) changes++;
+    }
+    const volatility = changes / (motionHistory.length - 1);
+    
+    // If volatility is approaching threshold (>0.30), bias toward previous motion
+    if (volatility > 0.30 && previousBehavior && (previousBehavior === 'calm' || previousBehavior === 'technical')) {
+      // Only apply continuity bias if current scene is not critical (low emotion/density)
+      if (emotion < 7 && density < 7 && emphasis !== 'strong') {
+        reasons.push(`Motion continuity bias (volatility ${(volatility * 100).toFixed(0)}% > 30%)`, `Maintaining ${previousBehavior} for stability`);
+        return { behavior: previousBehavior, reason: reasons, continuityBiasApplied: true };
+      }
+    }
+  }
+  
   // STEP 2: High density → calm
   if (density >= 7) {
     reasons.push(`High density (${density}) requires calm motion`);

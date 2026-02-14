@@ -1,4 +1,6 @@
 import { theme } from '../style/theme';
+import { getFontSize } from '../visual-language/typography-scale';
+import { getBorderRadius } from '../visual-language/shape-language';
 
 export const TimelineStep = ({
   label,
@@ -8,8 +10,8 @@ export const TimelineStep = ({
     <div
       style={{
         padding: '12px 20px',
-        borderRadius: 999,
-        fontSize: 28,
+        borderRadius: getBorderRadius('full'),
+        fontSize: getFontSize('caption'),
         fontWeight: 600,
         backgroundColor: active ? theme.primary : '#1E293B',
         color: active ? '#020617' : theme.text,

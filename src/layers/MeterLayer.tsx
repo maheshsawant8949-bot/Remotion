@@ -1,6 +1,6 @@
 import { interpolate, useCurrentFrame } from 'remotion';
 import { theme } from '../style/theme';
-import { SAFE_BOTTOM, SAFE_TOP } from '../style/layout';
+import { getFontSize } from '../visual-language/typography-scale';
 
 export const MeterLayer = ({
   value,
@@ -48,7 +48,7 @@ export const MeterLayer = ({
           }}
         />
       </div>
-      <div style={{ marginTop: 16, fontSize: 28, color: theme.text }}>
+      <div style={{ marginTop: 16, fontSize: getFontSize('caption'), color: theme.text }}>
         {label}
       </div>
     </div>

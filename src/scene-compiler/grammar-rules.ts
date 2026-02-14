@@ -123,6 +123,11 @@ export type DecisionTrace = {
       inflationPrevented?: boolean;
       recoveryBiasApplied?: boolean;
   };
+  // Motion Curve Trace
+  motionCurve?: {
+      type: "gentle" | "confident" | "swift" | "deliberate";
+      reason: string;
+  };
   // Transition Trace
   transitionFromPrevious?: {
       type: "soft" | "firm" | "release" | "minimal";
@@ -149,16 +154,20 @@ export type SceneIntent = {
   competingStrategies?: string[]; 
   // Pre-calculated emotional weight (optional override)
   emotionalWeight?: number; 
-  // Reveal history for frequency governor (last 3 scenes)
-  revealHistory?: ("instant" | "stagger" | "spotlight" | "build")[];
-  // Emphasis history for frequency governor (last 3 scenes)
-  emphasisHistory?: ("none" | "soft" | "strong")[];
-  // Motion history for inflation prevention and recovery bias (last 10 scenes)
-  motionHistory?: ("calm" | "assertive" | "energetic" | "technical")[];
-  // Transition history for frequency capping (last 20 scenes)
-  transitionHistory?: ("soft" | "firm" | "release" | "minimal")[];
-  // Camera history for governor (focus/macro streak prevention) (last 10 scenes)
-  cameraHistory?: ("wide" | "standard" | "focus" | "macro")[];
+  // History tracking for governors
+  revealHistory?: Array<"instant" | "stagger" | "spotlight" | "build">;
+  emphasisHistory?: Array<"none" | "soft" | "strong">;
+  motionHistory?: Array<"calm" | "assertive" | "energetic" | "technical">;
+  transitionHistory?: Array<"soft" | "firm" | "release" | "minimal">;
+  cameraHistory?: Array<"wide" | "standard" | "focus" | "macro">;
+  // Motion curve state for inflation protection and jitter prevention
+  curveState?: {
+    totalScenes: number;
+    swiftCount: number;
+    deliberateCount: number;
+    previousCurve?: "gentle" | "confident" | "swift" | "deliberate";
+    curveChanges: number;
+  };
 };
 
 export type IntentTemplateMap = {
