@@ -141,6 +141,11 @@ export type DecisionTrace = {
       reason: string[];
       governorApplied?: boolean;
   };
+  // Camera Movement Trace
+  cameraMovement?: {
+      type: "static" | "drift" | "push" | "hold";
+      reason: string;
+  };
 };
 
 export type SceneIntent = {
@@ -167,6 +172,17 @@ export type SceneIntent = {
     deliberateCount: number;
     previousCurve?: "gentle" | "confident" | "swift" | "deliberate";
     curveChanges: number;
+  };
+  // Camera movement state for distribution control
+  movementState?: {
+    totalScenes: number;
+    staticCount: number;
+    driftCount: number;
+    pushCount: number;
+    holdCount: number;
+    movementCount: number;
+    previousMovement?: "static" | "drift" | "push" | "hold";
+    pushStreak: number;
   };
 };
 

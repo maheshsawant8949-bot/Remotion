@@ -10,6 +10,7 @@ import { FramingEngine } from '../camera-intelligence/framing-engine';
 import { Heuristics } from '../visual-reasoner/heuristics';
 import { getFontSize } from '../visual-language/typography-scale';
 import { CurveResolver } from '../motion-curves/curve-resolver';
+import { MovementResolver } from '../camera-movement/movement-resolver';
 
 export interface CompiledScene {
   layout: TemplateType;
@@ -304,6 +305,22 @@ export const SceneFactory = {
         recentShots: intent.cameraHistory || []
     });
 
+    // 10.5. Camera Movement Resolution (AFTER camera shot, BEFORE finalization)
+    // Determines camera movement intent (semantic, not transforms)
+    const movementDecision = MovementResolver.resolve({
+        cameraShot: cameraDecision.type,
+        motionCurve: motionCurveDecision.type,
+        emphasisLevel: emphasisDecision.level,
+        rhythmPeak: emphasisDecision.level === 'strong' && emotionalWeight >= 7,
+        density: densityScore,
+        emotionalWeight,
+        totalScenes: intent.movementState?.totalScenes || 1,
+        movementCount: intent.movementState?.movementCount || 0,
+        pushCount: intent.movementState?.pushCount || 0,
+        previousMovement: intent.movementState?.previousMovement,
+        pushStreak: intent.movementState?.pushStreak || 0,
+    });
+
     
     // Augment trace with selection logic
     const finalTrace = {
@@ -323,6 +340,7 @@ export const SceneFactory = {
         motionCurve: motionCurveDecision,
         transitionFromPrevious: transitionDecision,
         cameraShot: cameraDecision,
+        cameraMovement: movementDecision,
 
         pacing: {
             ...intent.trace?.pacing,
