@@ -7,7 +7,15 @@
  * - Tier 3: AI Generation (only when necessary, never default)
  */
 
-import { AssetStrategy, AssetPath } from './asset-strategy';
+import { AssetStrategy } from './asset-strategy';
+import { 
+  StockProvider, 
+  PexelsProvider, 
+  UnsplashProvider, 
+  ShutterstockProvider,
+  DalleProvider, // New import
+  StockFilters 
+} from './stock-providers';
 
 /**
  * Asset Source
@@ -42,6 +50,16 @@ export interface AssetResult {
  * Multi-Source Resolver
  */
 export class MultiSourceResolver {
+  private static providers: {
+    tier1: StockProvider[];
+    tier2: StockProvider[];
+    tier3: StockProvider[]; // New tier
+  } = {
+    tier1: [new ShutterstockProvider()],
+    tier2: [new PexelsProvider(), new UnsplashProvider()],
+    tier3: [new DalleProvider()] // New instantiation
+  };
+
   /**
    * Search sources in priority order
    */
@@ -56,20 +74,22 @@ export class MultiSourceResolver {
     const results: AssetResult[] = [];
     const maxResults = options?.maxResults || 10;
     
+    const filters: StockFilters = {
+      orientation: 'landscape', // Default for video
+      minWidth: options?.minQuality === '4k' ? 3840 : 1920,
+    };
+    
     // Tier 1 — Premium Stock APIs (if budget allows)
-    // Quality difference is massive.
-    const tier1Results = await this.searchTier1(query, strategy, options);
+    const tier1Results = await this.searchTier1(query, strategy, filters);
     results.push(...tier1Results);
     
     // Tier 2 — Curated free sources (only if style-safe)
-    // Avoid random scraping.
     if (results.length < maxResults) {
-      const tier2Results = await this.searchTier2(query, strategy, options);
+      const tier2Results = await this.searchTier2(query, strategy, filters);
       results.push(...tier2Results);
     }
     
     // Tier 3 — AI Generation (only when necessary)
-    // Never default to it.
     if (results.length === 0 && strategy.path === 'ai_generated') {
       const tier3Results = await this.searchTier3(query, strategy, options);
       results.push(...tier3Results);
@@ -84,18 +104,22 @@ export class MultiSourceResolver {
   private static async searchTier1(
     query: string,
     strategy: AssetStrategy,
-    options?: any
+    filters: StockFilters
   ): Promise<AssetResult[]> {
-    // TODO: Integrate with premium APIs
-    // - Shutterstock: https://api.shutterstock.com
-    // - Getty: https://developers.gettyimages.com
-    // - Adobe Stock: https://developer.adobe.com/stock
-    // - Storyblocks: https://developer.storyblocks.com
+    const results: AssetResult[] = [];
     
-    console.log('[Tier 1] Searching premium stock APIs:', query);
+    for (const provider of this.providers.tier1) {
+      if (provider.isConfigured()) {
+        try {
+          const assets = await provider.search(query, filters);
+          results.push(...assets);
+        } catch (err) {
+          console.warn(`Provider ${provider.name} failed:`, err);
+        }
+      }
+    }
     
-    // Placeholder: Return empty for now
-    return [];
+    return results;
   }
   
   /**
@@ -104,17 +128,22 @@ export class MultiSourceResolver {
   private static async searchTier2(
     query: string,
     strategy: AssetStrategy,
-    options?: any
+    filters: StockFilters
   ): Promise<AssetResult[]> {
-    // TODO: Integrate with curated free sources
-    // - Pexels: https://www.pexels.com/api
-    // - Unsplash: https://unsplash.com/developers
-    // - Pixabay: https://pixabay.com/api/docs
+    const results: AssetResult[] = [];
     
-    console.log('[Tier 2] Searching curated free sources:', query);
+    for (const provider of this.providers.tier2) {
+      if (provider.isConfigured()) {
+        try {
+          const assets = await provider.search(query, filters);
+          results.push(...assets);
+        } catch (err) {
+          console.warn(`Provider ${provider.name} failed:`, err);
+        }
+      }
+    }
     
-    // Placeholder: Return empty for now
-    return [];
+    return results;
   }
   
   /**
@@ -166,3 +195,4 @@ export class MultiSourceResolver {
     return parts.join(' ');
   }
 }
+

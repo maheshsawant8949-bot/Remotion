@@ -58,39 +58,53 @@ export class StyleValidator {
       lighting: 1.0,
       composition: 1.0,
     };
+
+    // 1. Resolution Check (Critical for premium feel)
+    const minWidth = 1920; 
+    if (asset.metadata.width && asset.metadata.width < minWidth) {
+      issues.push(`Low resolution: ${asset.metadata.width}px (min ${minWidth}px)`);
+      breakdown.realism = 0.5; // Low res kills realism
+    }
+
+    // 2. Aspect Ratio Check (Context dependent)
+    if (asset.metadata.width && asset.metadata.height) {
+      const ratio = asset.metadata.width / asset.metadata.height;
+      const isLandscape = ratio > 1.3;
+      if (!isLandscape && asset.metadata.type === 'footage') {
+        issues.push('Invalid orientation: Footage should be landscape');
+        breakdown.composition = 0.6;
+      }
+    }
+
+    // 3. Metadata/Tag Analysis (Heuristic proxy for CV)
+    const tags = (asset.metadata.tags || []).join(' ').toLowerCase();
     
-    // TODO: Implement actual style validation
-    // This would require image analysis (computer vision)
-    // For now, return placeholder
-    
-    // Color temperature check
-    // - Analyze dominant colors
-    // - Compare against criteria
-    
-    // Contrast analysis
-    // - Measure luminance range
-    // - Compare against criteria
-    
-    // Grain detection
-    // - Analyze noise levels
-    // - Compare against criteria
-    
-    // Realism assessment
-    // - Detect stylization
-    // - Compare against criteria
-    
-    // Lighting style match
-    // - Analyze light direction
-    // - Detect shadows
-    // - Compare against criteria
-    
-    // Composition density check
-    // - Analyze visual complexity
-    // - Count elements
-    // - Compare against criteria
-    
+    // Check Realism
+    if (criteria.realism === 'photorealistic') {
+      if (tags.includes('illustration') || tags.includes('vector') || tags.includes('cartoon') || tags.includes('3d render')) {
+         // Allow 3d render if high quality, but flag cartoons
+         if (tags.includes('cartoon') || tags.includes('vector')) {
+            issues.push('Style mismatch: Detected illustrative content for photorealistic requirement');
+            breakdown.realism = 0.4;
+         }
+      }
+    }
+
+    // Check Lighting
+    if (criteria.lightingStyle === 'dramatic') {
+      if (!tags.includes('dark') && !tags.includes('shadow') && !tags.includes('contrast')) {
+        // Not a hard fail, but lowers score
+        breakdown.lighting = 0.8; 
+      }
+    }
+
+    // 4. Computer Vision Placeholder (Future integration)
+    // const cvAnalysis = await this.analyzeImage(asset.url); 
+    // This would update breakdown.colorTemperature, breakdown.grain, etc.
+
+    // Calculate final score
     const score = Object.values(breakdown).reduce((a, b) => a + b, 0) / 6;
-    
+
     return {
       isValid: issues.length === 0 && score >= 0.7,
       score,
@@ -109,7 +123,7 @@ export class StyleValidator {
     const results = new Map<AssetResult, StyleValidationResult>();
     
     assets.forEach(asset => {
-      results.set(asset, this.validate(asset, criteria));
+      results.set(asset, this.validate(asset, criteria)); // Now synchronous
     });
     
     return results;

@@ -40,3 +40,7 @@ export {
   type AlignmentContext,
   AlignmentResolver,
 } from './alignment-resolver';
+
+export {
+  AudioAlignmentEngine,
+} from './engine';

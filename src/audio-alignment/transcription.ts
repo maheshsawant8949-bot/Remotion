@@ -43,10 +43,52 @@ export class Transcriber {
    * ]
    */
   static async transcribe(audioPath: string): Promise<TranscriptionResult> {
-    // TODO: Integrate with Whisper/WhisperX
-    // This is a placeholder for the actual integration
+    // Integrate with Whisper/WhisperX via Python script
+    const { execa } = await import('execa');
+    const path = await import('path');
+    const fs = await import('fs/promises');
     
-    throw new Error('Whisper/WhisperX integration not yet implemented. Use external tool and provide word timestamps.');
+    // Create temp output file
+    const outputPath = path.join(process.cwd(), 'temp', `transcription_${Date.now()}.json`);
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    
+    try {
+      // Call Python transcription script
+      const scriptPath = path.join(process.cwd(), 'scripts', 'transcribe.py');
+      
+      console.log('Transcribing audio with WhisperX...');
+      const { stdout, stderr } = await execa('python', [scriptPath, audioPath, outputPath]);
+      
+      if (stderr) {
+        console.warn('WhisperX warnings:', stderr);
+      }
+      
+      // Read output
+      const resultJson = await fs.readFile(outputPath, 'utf-8');
+      const result = JSON.parse(resultJson);
+      
+      // Convert to our format
+      const words: WordTimestamp[] = result.words.map((w: any) => ({
+        word: w.word,
+        start: w.start,
+        end: w.end,
+        confidence: w.score || 1.0,
+      }));
+      
+      // Clean up temp file
+      await fs.unlink(outputPath).catch(() => {});
+      
+      return {
+        text: result.text,
+        words,
+        language: result.language || 'en',
+        duration: words.length > 0 ? words[words.length - 1].end : 0,
+      };
+    } catch (error) {
+      // Clean up on error
+      await fs.unlink(outputPath).catch(() => {});
+      throw new Error(`WhisperX transcription failed: ${error}`);
+    }
   }
   
   /**

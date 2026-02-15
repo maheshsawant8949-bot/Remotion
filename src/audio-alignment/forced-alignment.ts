@@ -26,10 +26,45 @@ export class ForcedAligner {
     audioPath: string,
     transcript: string
   ): Promise<WordTimestamp[]> {
-    // TODO: Integrate with forced alignment tool
-    // This is a placeholder for the actual integration
+    // Integrate with forced alignment via Python script
+    const { execa } = await import('execa');
+    const path = await import('path');
+    const fs = await import('fs/promises');
     
-    throw new Error('Forced alignment integration not yet implemented. Use external tool and provide aligned timestamps.');
+    // Create temp files
+    const transcriptPath = path.join(process.cwd(), 'temp', `transcript_${Date.now()}.json`);
+    const outputPath = path.join(process.cwd(), 'temp', `aligned_${Date.now()}.json`);
+    await fs.mkdir(path.dirname(transcriptPath), { recursive: true });
+    
+    try {
+      // Write transcript to temp file
+      await fs.writeFile(transcriptPath, JSON.stringify({ text: transcript, words: [] }));
+      
+      // Call Python alignment script
+      const scriptPath = path.join(process.cwd(), 'scripts', 'align.py');
+      
+      console.log('Aligning audio with forced aligner...');
+      const { stdout, stderr } = await execa('python', [scriptPath, audioPath, transcriptPath, outputPath]);
+      
+      if (stderr) {
+        console.warn('Alignment warnings:', stderr);
+      }
+      
+      // Read output
+      const resultJson = await fs.readFile(outputPath, 'utf-8');
+      const result = JSON.parse(resultJson);
+      
+      // Clean up temp files
+      await fs.unlink(transcriptPath).catch(() => {});
+      await fs.unlink(outputPath).catch(() => {});
+      
+      return result.words;
+    } catch (error) {
+      // Clean up on error
+      await fs.unlink(transcriptPath).catch(() => {});
+      await fs.unlink(outputPath).catch(() => {});
+      throw new Error(`Forced alignment failed: ${error}`);
+    }
   }
   
   /**
