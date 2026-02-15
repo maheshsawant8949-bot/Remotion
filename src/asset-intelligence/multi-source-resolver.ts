@@ -1,0 +1,168 @@
+/**
+ * Multi-Source Resolver
+ * 
+ * Search sources in priority order:
+ * - Tier 1: Premium Stock APIs (quality difference is massive)
+ * - Tier 2: Curated free sources (only if style-safe)
+ * - Tier 3: AI Generation (only when necessary, never default)
+ */
+
+import { AssetStrategy, AssetPath } from './asset-strategy';
+
+/**
+ * Asset Source
+ */
+export type AssetSource =
+  | 'shutterstock'
+  | 'getty'
+  | 'adobe_stock'
+  | 'storyblocks'
+  | 'pexels'
+  | 'unsplash'
+  | 'pixabay'
+  | 'ai_generated';
+
+/**
+ * Asset Result
+ */
+export interface AssetResult {
+  url: string;
+  source: AssetSource;
+  tier: 1 | 2 | 3;
+  metadata: {
+    type: 'photo' | 'footage' | 'vector' | 'ai';
+    width?: number;
+    height?: number;
+    duration?: number;  // For footage
+    tags?: string[];
+  };
+}
+
+/**
+ * Multi-Source Resolver
+ */
+export class MultiSourceResolver {
+  /**
+   * Search sources in priority order
+   */
+  static async search(
+    query: string,
+    strategy: AssetStrategy,
+    options?: {
+      maxResults?: number;
+      minQuality?: 'hd' | 'uhd' | '4k';
+    }
+  ): Promise<AssetResult[]> {
+    const results: AssetResult[] = [];
+    const maxResults = options?.maxResults || 10;
+    
+    // Tier 1 — Premium Stock APIs (if budget allows)
+    // Quality difference is massive.
+    const tier1Results = await this.searchTier1(query, strategy, options);
+    results.push(...tier1Results);
+    
+    // Tier 2 — Curated free sources (only if style-safe)
+    // Avoid random scraping.
+    if (results.length < maxResults) {
+      const tier2Results = await this.searchTier2(query, strategy, options);
+      results.push(...tier2Results);
+    }
+    
+    // Tier 3 — AI Generation (only when necessary)
+    // Never default to it.
+    if (results.length === 0 && strategy.path === 'ai_generated') {
+      const tier3Results = await this.searchTier3(query, strategy, options);
+      results.push(...tier3Results);
+    }
+    
+    return results.slice(0, maxResults);
+  }
+  
+  /**
+   * Search Tier 1: Premium Stock APIs
+   */
+  private static async searchTier1(
+    query: string,
+    strategy: AssetStrategy,
+    options?: any
+  ): Promise<AssetResult[]> {
+    // TODO: Integrate with premium APIs
+    // - Shutterstock: https://api.shutterstock.com
+    // - Getty: https://developers.gettyimages.com
+    // - Adobe Stock: https://developer.adobe.com/stock
+    // - Storyblocks: https://developer.storyblocks.com
+    
+    console.log('[Tier 1] Searching premium stock APIs:', query);
+    
+    // Placeholder: Return empty for now
+    return [];
+  }
+  
+  /**
+   * Search Tier 2: Curated free sources
+   */
+  private static async searchTier2(
+    query: string,
+    strategy: AssetStrategy,
+    options?: any
+  ): Promise<AssetResult[]> {
+    // TODO: Integrate with curated free sources
+    // - Pexels: https://www.pexels.com/api
+    // - Unsplash: https://unsplash.com/developers
+    // - Pixabay: https://pixabay.com/api/docs
+    
+    console.log('[Tier 2] Searching curated free sources:', query);
+    
+    // Placeholder: Return empty for now
+    return [];
+  }
+  
+  /**
+   * Search Tier 3: AI Generation
+   */
+  private static async searchTier3(
+    query: string,
+    strategy: AssetStrategy,
+    options?: any
+  ): Promise<AssetResult[]> {
+    // TODO: Integrate with AI generation
+    // - Stable Diffusion
+    // - DALL-E 3
+    // - Midjourney API (when available)
+    
+    console.log('[Tier 3] Generating AI asset:', query);
+    
+    // Placeholder: Return empty for now
+    return [];
+  }
+  
+  /**
+   * Build optimized search query
+   */
+  static buildQuery(intent: any, strategy: AssetStrategy): string {
+    // Build semantic query, not just keywords
+    const parts: string[] = [intent.primaryConcept];
+    
+    // Add visual category context
+    if (intent.visualCategory === 'historical' && intent.era) {
+      parts.push(intent.era);
+    }
+    
+    // Add location context
+    if (intent.location) {
+      parts.push(intent.location);
+    }
+    
+    // Add emotional tone for footage
+    if (strategy.path === 'stock_footage' && intent.emotionalTone) {
+      parts.push(intent.emotionalTone);
+    }
+    
+    // Add quality modifiers
+    if (strategy.path === 'stock_footage') {
+      parts.push('cinematic', 'professional');
+    }
+    
+    return parts.join(' ');
+  }
+}
