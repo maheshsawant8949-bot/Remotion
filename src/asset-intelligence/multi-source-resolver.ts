@@ -154,15 +154,33 @@ export class MultiSourceResolver {
     strategy: AssetStrategy,
     options?: any
   ): Promise<AssetResult[]> {
-    // TODO: Integrate with AI generation
-    // - Stable Diffusion
-    // - DALL-E 3
-    // - Midjourney API (when available)
+    const results: AssetResult[] = [];
+    
+    // Use DALL-E 3 Provider
+    // Only if strategy path is explicitly set to avoid burning tokens on accidental calls
+    // But we trust the caller (MultiSourceResolver.search) has checked this or we check budget
     
     console.log('[Tier 3] Generating AI asset:', query);
+
+    for (const provider of this.providers.tier3) {
+        if (provider.isConfigured()) {
+            try {
+                // Tier 3 generation is slow, so we usually only want 1 result
+                const assets = await provider.search(query, {
+                    ...options,
+                    style: 'photorealistic' // Default for DALL-E 3 in this context
+                });
+                results.push(...assets);
+                
+                // If we got a result, stop. We don't need multiple AI generators competing yet.
+                if (results.length > 0) break;
+            } catch (err) {
+                console.warn(`Provider ${provider.name} failed:`, err);
+            }
+        }
+    }
     
-    // Placeholder: Return empty for now
-    return [];
+    return results;
   }
   
   /**
